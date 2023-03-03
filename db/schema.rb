@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_25_101256) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_03_122942) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,6 +27,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_25_101256) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
+  end
+
+  create_table "electives", force: :cascade do |t|
+    t.string "Title"
+    t.text "Description"
+    t.string "Speciality"
+    t.string "Location"
+    t.boolean "Accomodation"
+    t.boolean "WP_Support"
+    t.string "Type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "sessions", force: :cascade do |t|
