@@ -27,9 +27,9 @@
           %span.navbar-toggler-icon
         #navbar-content.navbar-collapse.collapse
           %nav.navbar-nav
-            .nav-item
-              = link_to electives_path, class: 'nav-link' do
-                Electives
+          - if can?(:read, Elective)
+            %li
+              = link_to 'Elective', electives_url, title: 'Go to the elective page', class: 'nav-link px-2 link-secondary'
           - if user_signed_in?
             .nav-item
               = link_to current_user.email, edit_user_registration_path, class: 'nav-link'
