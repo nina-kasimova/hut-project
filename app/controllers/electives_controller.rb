@@ -1,5 +1,8 @@
 class ElectivesController < ApplicationController
-  before_action :set_elective, only: %i[ show edit update destroy ]
+  before_action :set_category, only: [:show, :edit, :update, :destroy]
+
+  authorize_resource
+
 
   # GET /electives
   def index
