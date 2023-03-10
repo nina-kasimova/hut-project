@@ -24,6 +24,7 @@
 #
 FactoryBot.define do
   factory :user do
-    
+    admin { false }
+    email { "my.email@sheffield.ac.uk" }
   end
 end

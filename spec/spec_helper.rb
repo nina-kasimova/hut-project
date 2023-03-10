@@ -91,4 +91,14 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+
+  # Below are methods that simplify the testing process and condense regularly used 
+  # actions for testing e.g. logging in as a user/admin, and turns it into a singular
+  # method call that can be used in any other testing file provided that file has a
+  # <require_relative '../spec_helper.rb'> at the top of it (minus the <>).
+  def sign_in_user
+    login_as(user)
+    visit '/'
+  end
+
 end

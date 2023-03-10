@@ -15,12 +15,12 @@
 #
 FactoryBot.define do
   factory :elective do
-    Title { "MyString" }
-    Description { "MyText" }
-    Speciality { "MyString" }
-    Location { "MyString" }
-    Accomodation { false }
-    WP_Support { false }
+    Title { "Research Elective" }
+    Description { "Lorem ipsum delorum" }
+    Speciality { "Research" }
+    Location { "United Kingdom" }
+    Accomodation { true }
+    WP_Support { true }
     Type { "MyString" }
   end
 end
