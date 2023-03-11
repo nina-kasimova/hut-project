@@ -16,5 +16,5 @@
 require 'rails_helper'
 
 RSpec.describe Elective, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  pending "# Currently no methods in the electives model to test #{__FILE__}"
 end
