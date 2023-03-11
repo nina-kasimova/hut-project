@@ -96,9 +96,73 @@ RSpec.configure do |config|
   # actions for testing e.g. logging in as a user/admin, and turns it into a singular
   # method call that can be used in any other testing file provided that file has a
   # <require_relative '../spec_helper.rb'> at the top of it (minus the <>).
+
+  def logout_user
+    visit '/'
+    click_on 'Logout'
+  end
+  
   def sign_in_user
     login_as(user)
     visit '/'
   end
 
+  def sign_in_admin
+    login_as(admin)
+    visit '/'
+  end
+
+  def visit_admin_tool
+    sign_in_admin
+    click_on 'Elective'
+  end
+
+  def create_user_account
+    visit '/'
+    click_on 'Login'
+    click_on 'Sign up'
+    fill_in  'user_email', with: "test@sheffield.ac.uk"
+    fill_in  'user_password', with: "Password1"
+    fill_in  'user_password_confirmation', with: "Password1"
+    click_on  'Sign up'
+  end
+
+  def delete_account
+    create_user_account
+    visit '/users/edit'
+
+    # Currently not working, have to add id tag to cancel account button
+    within '.container-fluid' do
+      click_on 'Cancel my account'
+    end
+    page.driver.browser.switch_to.alert.accept
+  end
+  
+  def manual_sign_in_user
+    visit '/'
+    click_on 'Login'
+    fill_in  'user_email', with: "my.email@sheffield.ac.uk"
+    fill_in  'user_password', with: "Password123"
+  end
+
+  def create_new_elective
+    click_on 'New Elective'
+    fill_in 'elective_Title', with: "Test Elective"
+    fill_in 'elective_Description', with: "Lorem ipsum delorum"
+    fill_in 'elective_Speciality', with: "Research"
+    check 'elective_Accomodation'
+    check 'elective_WP_Support'
+    fill_in 'elective_Type', with: "///"
+    click_on 'Save'
+  end
+
+  def edit_elective
+    fill_in 'elective_Title', with: "1234"
+    fill_in 'elective_Description', with: "1234"
+    fill_in 'elective_Speciality', with: "1234"
+    uncheck 'elective_Accomodation'
+    uncheck 'elective_WP_Support'
+    fill_in 'elective_Type', with: "1234"
+    click_on 'Save'
+  end
 end
