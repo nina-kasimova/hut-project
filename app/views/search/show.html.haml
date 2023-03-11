@@ -1,0 +1,23 @@
+
+- if @electives.present?
+  %h3 Found Electives:
+  %card-body
+    - @electives.each do |elective|
+      %h5= elective.Title
+      %li= elective.Description
+      %li= elective.Speciality
+      %li= elective.Location
+      %li= "Accomodation Provided? #{elective.Accomodation}"
+      %li= "WP Support Provided? #{elective.WP_Support}"
+      %li= elective.Type
+- else
+  %h3 No Electives found!
+
+
+
+/ %card-body
+/   - @elective.each do |elective|
+/     %h3= elective.Title
+/     %li= elective.Speciality
+/     %li= elective.Location
+/     %li= elective.Type
