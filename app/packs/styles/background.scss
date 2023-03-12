@@ -1,5 +1,5 @@
-$background_colour:#edf0f4;
-$box_colour:#ebebeb;
+$background_colour:#c9d3dd;
+$box_colour:#d3d3d3;
 $separator_colour:#2b2b2a;
 
 body {
@@ -16,7 +16,7 @@ background-color: $background_colour;
 
 h1 {
   font-size: 30px;
-  margin-bottom: 40px;
+  margin-bottom: 80px;
   margin-top: 20px;
 }
 
@@ -27,11 +27,18 @@ h2 {
 
 .description {
   font-size: 16px;
-  line-height: 1.8;
-  margin-top: 20px;
+  line-height: 2.2;
+  margin-top: 40px;
 }
 
 div.reasons {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  width: 60%;
+}
+
+div.how-works {
   margin-left: auto;
   margin-right: auto;
   padding: 20px;
@@ -47,7 +54,7 @@ div.reasons {
 //border-width: 2px;
 //}
 
-div.tables {
+div.reason-tables {
   margin-left: auto;
   margin-right: auto;
   margin-top: 40px;
@@ -59,14 +66,48 @@ table.left, table.right {
   margin-left:15px;
 }
 
-th, td {
+div.reasons th, div.reasons td {
   padding: 15px 5px 15px 5px;
   text-align: left;
 }
 
-hr {
+div.steps-tables table{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  text-align: center;
+}
+
+div.steps-tables table td {
+  width: 300px;
+  padding:15px 50px 15px 50px;
+}
+
+tr.numbers {
+  color: #7f8c9a;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+tr.names {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+tr.description {
+  font-size: 14px;
+  font-style: italic;
+}
+
+hr.first {
   background-color: $separator_colour;
   height:2px;
   width: 40%;
+}
+
+hr.second {
+  background-color: $separator_colour;
+  height:1px;
+  width: 20%;
 }
 
