@@ -1,12 +1,17 @@
 require 'rails_helper'
 require_relative '../spec_helper.rb'
 
-describe 'Interacting with the site as as guest' do
+RSpec.describe 'Interacting with the site as as guest', type: :feature do
   # Creates a temporary user with email 'test@sheffield.ac.uk' and password as below
   # from the factory bot file
   let!(:user) { FactoryBot.create(:user, password: "password123") }
   let!(:admin) { FactoryBot.create(:user, email: "admin@sheffield.ac.uk" ,password: "password123", admin: true) }
-  specify 'Guest can create an account and then logout' do
+
+  before :each do
+    nil
+  end
+  
+  specify 'can create an account and then logout' do
     visit '/'
     click_on 'Login'
     click_on 'Sign up'
@@ -24,7 +29,7 @@ describe 'Interacting with the site as as guest' do
     expect(page).to have_content 'Login'
   end
 
-  specify 'Guest can login as a user' do
+  specify 'can login as a user' do
     sign_in_user
 
     expect(page).to have_content 'my.email@sheffield.ac.uk'
@@ -34,5 +39,19 @@ describe 'Interacting with the site as as guest' do
     
     expect(page).to have_content 'Signed out successfully.'
     expect(page).to have_content 'Login'
+  end
+
+  specify 'cannot visit the electives search page until login' do
+    visit '/'
+    visit '/search'
+
+    expect(page).to have_content("You need to sign in or sign up before continuing.")
+    expect(page).to have_current_path('/users/sign_in')
+
+    sign_in_user
+    visit '/search'
+
+    expect(page).to have_current_path('/search')
+    expect(page).to have_content("Search for an Elective:")
   end
 end
