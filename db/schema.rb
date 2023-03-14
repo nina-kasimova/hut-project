@@ -14,6 +14,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_112605) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.string "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer "priority", default: 0, null: false
     t.integer "attempts", default: 0, null: false
@@ -37,6 +44,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_112605) do
     t.boolean "Accomodation"
     t.boolean "WP_Support"
     t.string "Type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.decimal "cost"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
