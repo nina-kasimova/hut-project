@@ -1,13 +1,70 @@
+$nav_bar_colour_one: rgba(0, 0, 0, 0.696);
+
 html {
   min-height: 100%
 }
-
+/*Nav Bar*/
 body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  
+  /*Navigation menu*/
+  .navbar{
+    height: 50px;
+  }
+ .container-fluid {
+  position: absolute;
+  margin: 0 0 0 0;
+  padding-left: 0;
+  padding-top: 0;
+ }
+
+header  ul {
+    display:flex;
+  }
+
+  header ul li{
+    margin: 0;
+    list-style: none;
+    position: relative;
+    white-space: nowrap;
+    padding: 23px 0 10px 22px;
+    font-size: 15px;
+  }
+
+  
+
+  /*header ul li a:hover{
+
+  }*/
+
+
+  .btn {
+     margin-left: 25px;
+     color: white;
+     border-radius: 4px;
+     padding: 6px 25px 8px 20px;
+     white-space: nowrap;
+     transition: 0.3s;
+     font-size:10px;
+     display: inline-block;
+     text-transform: uppercase;
+     border: 1px solid black;
+     font-weight: 400;
+     font-family: "Poppins", sans-serif;
+     background-color:  #5125ad;
+     height: 30px;
+  }
 
   footer {
     margin-top: auto;
   }
+}
+
+
+/*Widening Participation*/
+h2 .wpheading{
+  display: flex;
+  justify-content: center;
 }

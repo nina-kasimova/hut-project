@@ -8,4 +8,8 @@ Rails.application.routes.draw do
 
   get "/search", to: "search#search"
   get "/search_electives", to: "search#show"
+  get "/wp_support", to: "pages#wp_support"
+  get "/finances", to: "pages#finances"
+  get "/faq", to: "pages#faq"
+
 end
