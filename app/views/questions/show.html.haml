@@ -1,0 +1,8 @@
+%h1= @question.title
+%p= @question.body
+
+%h2 Answers
+= render 'answers/form', question: @question, answer: @question.answers.build
+
+%ul
+  - @question.answers.each
