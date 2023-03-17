@@ -96,7 +96,7 @@ RSpec.configure do |config|
   # actions for testing e.g. logging in as a user/admin, and turns it into a singular
   # method call that can be used in any other testing file provided that file has a
   # <require_relative '../spec_helper.rb'> at the top of it (minus the <>).
-
+  
   def logout_user
     visit '/'
     click_on 'Logout'
@@ -137,7 +137,7 @@ RSpec.configure do |config|
     end
     page.driver.browser.switch_to.alert.accept
   end
-  
+
   def manual_sign_in_user
     visit '/'
     click_on 'Login'
@@ -164,5 +164,13 @@ RSpec.configure do |config|
     uncheck 'elective_WP_Support'
     fill_in 'elective_Type', with: "1234"
     click_on 'Save'
+  end
+
+  def signin_user_with_elective
+    visit_admin_tool
+    create_new_elective
+    click_on 'Back'
+    logout_user
+    sign_in_user
   end
 end
