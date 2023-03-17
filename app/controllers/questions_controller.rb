@@ -1,7 +1,13 @@
 class QuestionsController < ApplicationController
-    def index
-      @questions = Question.all
-    end
+  before_action :set_elective, only: [:new, :create, :index]
+  def index
+    # Find the elective based on the elective_id passed in the URL
+    @elective = Elective.find(params[:elective_id])
+  
+    # Fetch only the questions that belong to the specific elective
+    @questions = @elective.questions
+  end
+  
   
     def show
       @question = Question.find(params[:id])
@@ -24,11 +30,11 @@ class QuestionsController < ApplicationController
     private
   
     def set_elective
-      @elective = Elective.find(params[:elective_id]) if params[:elective_id]
-    end
+      @elective = Elective.find(params[:elective_id])
+    end     
   
     def question_params
-      params.require(:question).permit(:title, :body)
-    end
+      params.require(:question).permit(:title, :body, :elective_id)
+    end    
   end
   
