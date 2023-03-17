@@ -9,6 +9,13 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :update_headers_to_disable_caching
 
+  # A temporary redirect given a CanCan exception when accessing unauthorised
+  # areas of the site (say a user tries to make a new elective)
+  # This is not a definite solution but I wanted to make some tests for this anyway
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_path, alert: "#{exception.message}"
+  end
+
   private
     def update_headers_to_disable_caching
       response.headers['Cache-Control'] = 'no-cache, no-cache="set-cookie", no-store, private, proxy-revalidate'
