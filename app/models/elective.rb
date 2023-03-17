@@ -14,4 +14,5 @@
 #  updated_at   :datetime         not null
 #
 class Elective < ApplicationRecord
+    has_many :questions
 end

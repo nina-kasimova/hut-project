@@ -8,11 +8,11 @@ class QuestionsController < ApplicationController
     end
   
     def new
-      @question = Question.new
+      @question = @elective.questions.build
     end
   
     def create
-      @question = Question.new(question_params)
+      @question = @elective.questions.build(question_params)
   
       if @question.save
         redirect_to @question, notice: 'Question was successfully created.'
@@ -22,6 +22,10 @@ class QuestionsController < ApplicationController
     end
   
     private
+  
+    def set_elective
+      @elective = Elective.find(params[:elective_id]) if params[:elective_id]
+    end
   
     def question_params
       params.require(:question).permit(:title, :body)
