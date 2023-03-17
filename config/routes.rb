@@ -12,4 +12,5 @@ Rails.application.routes.draw do
 
   get "/search", to: "search#search"
   get "/search_electives", to: "search#show"
+  get "/questions", to: "questions#index"
 end
