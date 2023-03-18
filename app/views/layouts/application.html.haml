@@ -1,4 +1,3 @@
-!!!
 %html{ lang: 'en-GB' }
   %head
     %title Project
@@ -19,17 +18,13 @@
     = javascript_pack_tag 'application'
 
   %body
-    %header.navbar.navbar-expand-lg.bg-secondary.mb-3-py-0
+    %header.navbar.navbar-expand-lg.bg-light.mb-3
       .container-fluid.logoWrapper
         = link_to '/', class: 'navbar-brand' do
           = image_pack_tag 'uniLogo.png', height: 50
-        
-      
-      %button.navbar-toggler{ type: :button, data: { bs_toggle: :collapse, bs_target: '#navbar-content' }, aria: { controls: 'navbar-content', expanded: 'false', label: 'Toggle navigation' } }
-        %span.navbar-toggler-icon
-      #navbar-content.navbar-collapse.collapse
-        %nav.navbar-nav
-        #navbar-content.navbar-collapse.collapse
+
+        %button.navbar-toggler{ type: :button, data: { bs_toggle: :collapse, bs_target: '#navbar-content' }, aria: { controls: 'navbar-content', expanded: 'false', label: 'Toggle navigation' } }
+          %span.navbar-toggler-icon
 
         %ul
           %li
@@ -45,18 +40,15 @@
             = link_to 'Finances', finances_path, title: 'Go to the finance page', class: 'nav-link px-2'
           %li
             = link_to 'FAQ', faq_path, title: 'Go to the FAQ page', class: 'nav-link px-2'
-          %li
-            = link_to 'Settings', edit_user_registration_path, title: 'Go to the settings page', class: 'nav-link px-2'
-          
-
-
-        - if user_signed_in?
-          .nav-item 
-            = link_to destroy_user_session_path, method: :delete, class: 'btn btn-primary nav-link' do
-              Logout
-        - else
-          .nav-item
-            = link_to 'Login', new_user_session_path, class: 'nav-link'
+          - if user_signed_in?
+            %li
+              = link_to 'Settings', edit_user_registration_path, title: 'Go to the settings page', class: 'nav-link px-2'
+            %li
+              = link_to destroy_user_session_path, method: :delete, class: 'nav-link' do
+                Logout
+          - else
+            %li
+              = link_to 'Login', new_user_session_path, class: 'nav-link'
 
     - if flash.present?
       .container-fluid.flash-messages
