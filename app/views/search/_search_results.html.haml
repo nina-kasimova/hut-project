@@ -1,0 +1,59 @@
+/ .row.justify-content-center
+/   .col-sm-8.col-lg-6
+/     .card
+/       .card-header
+/         Elective details
+/       .card-body
+/         %dl.row.mb-0
+/           %dt.col-md-3 Title:
+/           %dd.col-md-9= @elective.Title
+/           %dt.col-md-3 Description:
+/           %dd.col-md-9= @elective.Description
+/           %dt.col-md-3 Speciality:
+/           %dd.col-md-9= @elective.Speciality
+/           %dt.col-md-3 Location:
+/           %dd.col-md-9= @elective.Location
+/           %dt.col-md-3 Accomodation:
+/           %dd.col-md-9= @elective.Accomodation
+/           %dt.col-md-3 Wp support:
+/           %dd.col-md-9= @elective.WP_Support
+/           %dt.col-md-3 Type:
+/           %dd.col-md-9= @elective.Type
+/       .card-footer.d-flex
+/         / = link_to 'Edit', edit_elective_path(@elective), class: 'btn btn-link'
+/         = link_to 'Back', request.referrer, class: 'btn btn-link ms-auto'
+/         / = link_to 'Back', electives_path, class: 'btn btn-link ms-auto'
+/         
+
+- if @electives.present?
+  .card
+    .card-header.d-flex.align-items-center
+      %span Found Electives
+
+    %table.table
+      %thead
+        %tr
+          %th Title
+          %th Description
+          %th Speciality
+          %th Location
+          %th Accomodation
+          %th Wp support
+          %th Type
+          %th
+      %tbody
+        - @electives.each do |elective|
+          %tr
+            %td= elective.Title
+            %td= elective.Description
+            %td= elective.Speciality
+            %td= elective.Location
+            %td= elective.Accomodation
+            %td= elective.WP_Support
+            %td= elective.Type
+            %td
+              .btn-toolbar.float-end
+                = link_to 'Show', elective, class: 'btn btn-outline-secondary btn-sm'
+
+- else
+  %h3 No Electives Found!
