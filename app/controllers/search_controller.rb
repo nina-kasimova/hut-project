@@ -16,6 +16,10 @@ class SearchController < ApplicationController
 			# if @search["Title"]
 			# @electives = electives_all.where(title: title)
 			@electives = electives_all.where(conditions)
+			respond_to do |format|
+				# format.html {redirect_to new_user_dashboard_index_path}
+				format.js
+			end
 		end
 	end
 

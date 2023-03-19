@@ -1,5 +1,5 @@
 %h2 Search for an Elective:
-= simple_form_for :search, method: "GET", url: "/search_electives" do |f|
+= simple_form_for :search, method: "GET", remote: true, url: "/search_electives" do |f|
   .card-body
     = f.input :Title, collection: @titles, wrapper_html: { class: 'mb-3' }, selected: @default
     / = f.input :Description, collection: @descriptions, wrapper_html: { class: 'mb-3' }, selected: @default
@@ -9,4 +9,13 @@
     = f.input :WP_Support, collection: @wps, wrapper_html: { class: 'mb-3' }, selected: @default
     = f.input :Type, collection: @types, wrapper_html: { class: 'mb-3' }, selected: @default
     = f.button :submit, value: "Search for Electives"
+
+
+/ %div#search_results
+/   results here ... 
+
+#search_results
+  = render partial: 'search_results', locals: { electives: @electives }
+
+= javascript_include_tag "show"
 
