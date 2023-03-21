@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "pages#home"
 
-  get "/search", to: "search#search"
+  get "/search", to: "search#index"
   get "/search_electives", to: "search#show"
 end

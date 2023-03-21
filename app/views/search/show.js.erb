@@ -2,5 +2,8 @@
 
 console.log("oyyyy");
 
+// $("#search_results").html("<%= escape_javascript(render partial: 'show', locals: { electives: @electives } ) %>");
 
-$("#search_results").html("<h1>yoo</h1>")
+var d1 = document.getElementById('search_results');
+
+d1.insertAdjacentHTML('beforeend', "<%= escape_javascript(render partial: 'show', locals: { electives: @electives } ) %>");

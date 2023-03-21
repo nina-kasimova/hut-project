@@ -18,7 +18,7 @@ class SearchController < ApplicationController
 			@electives = electives_all.where(conditions)
 			respond_to do |format|
 				# format.html {redirect_to new_user_dashboard_index_path}
-				format.js
+				format.js {render layout: false}
 			end
 		end
 	end
