@@ -173,4 +173,10 @@ RSpec.configure do |config|
     logout_user
     sign_in_user
   end
+
+  def submit_question
+    fill_in 'question_title', with: 'Test Title'
+    fill_in 'question_body', with: 'Test Body'
+    click_on 'Create Question'
+  end
 end
