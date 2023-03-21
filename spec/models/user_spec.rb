@@ -24,6 +24,15 @@
 #
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
-  pending "# Currently no methods in the user model to test #{__FILE__}"
+RSpec.describe User, :type => :model do
+
+  it 'is database authenticable' do
+    user = User.create(
+      email: 'test@sheffield.ac.uk', 
+      password: 'password123',
+      password_confirmation: 'password123'
+    )
+    expect(user.valid_password?('password123')).to be_truthy
+  end
+  
 end
