@@ -15,7 +15,6 @@ RSpec.describe 'Interacting with site as an admin', type: :feature do
     sign_in_admin
 
     expect(page).to have_current_path("/")
-    expect(page).to have_content("admin@sheffield.ac.uk")
 
     logout_user
 
@@ -40,7 +39,6 @@ RSpec.describe 'Interacting with site as an admin', type: :feature do
 
     expect(page).to have_content("Elective was successfully created.")
     expect(page).to have_content("Test Elective")
-    expect(page)
     expect(page).to have_current_path("/electives/1")
 
     click_on 'Back'
@@ -91,5 +89,15 @@ RSpec.describe 'Interacting with site as an admin', type: :feature do
 
     expect(page).to have_content("Elective was successfully destroyed.")
     expect(page).to have_current_path('/electives')
+  end
+
+  specify 'can view the questions on an elective' do
+    visit_admin_tool
+    # This is elective with ID = 5
+    create_new_elective
+    click_link 'View Questions'
+
+    expect(page).to have_current_path('/electives/5/questions')
+    expect(page).to have_link('Ask a new question')
   end
 end

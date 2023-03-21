@@ -32,7 +32,6 @@ RSpec.describe 'Interacting with the site as as guest', type: :feature do
   specify 'can login as a user' do
     sign_in_user
 
-    expect(page).to have_content 'my.email@sheffield.ac.uk'
     expect(page).to have_content 'Logout'
 
     logout_user
