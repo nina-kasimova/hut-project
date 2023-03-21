@@ -10,15 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_07_112605) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_17_141440) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "categories", force: :cascade do |t|
-    t.string "name"
-    t.string "code"
+  create_table "answers", force: :cascade do |t|
+    t.text "body"
+    t.bigint "question_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
   create_table "delayed_jobs", force: :cascade do |t|
@@ -48,12 +49,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_112605) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "products", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.decimal "cost"
+  create_table "questions", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "elective_id", null: false
+    t.index ["elective_id"], name: "index_questions_on_elective_id"
   end
 
   create_table "sessions", force: :cascade do |t|
@@ -83,4 +85,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_112605) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "answers", "questions"
+  add_foreign_key "questions", "electives"
 end
