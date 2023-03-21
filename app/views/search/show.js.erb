@@ -5,5 +5,5 @@
 // $("#search_results").html("<%= escape_javascript(render partial: 'show', locals: { electives: @electives } ) %>");
 
 var d1 = document.getElementById('search_results');
-
+d1.innerHTML = "";
 d1.insertAdjacentHTML('beforeend', "<%= escape_javascript(render partial: 'show', locals: { electives: @electives } ) %>");

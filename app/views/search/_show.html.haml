@@ -34,4 +34,21 @@
                 = link_to 'Show', elective, class: 'btn btn-outline-secondary btn-sm'
 
 - else
-  %h3 No Electives Found!
+  .card
+    .card-header.d-flex.align-items-center
+      %span Found Electives
+
+    %table.table
+      %thead
+        %tr
+          %th Title
+          %th Description
+          %th Speciality
+          %th Location
+          %th Accomodation
+          %th Wp support
+          %th Type
+          %th
+      %tbody
+        %tr
+  / %h3 No Electives Found!
