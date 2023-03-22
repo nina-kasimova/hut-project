@@ -28,7 +28,7 @@
 
         %ul
           %li
-            = link_to 'Home', electives_url, title: 'Go to the home page', class: 'nav-link px-2'
+            = link_to 'Home', root_url, title: 'Go to the home page', class: 'nav-link px-2'
           - if can?(:read, Elective)
             %li
               = link_to 'Elective', electives_url, title: 'Go to the elective page', class: 'nav-link px-2'
@@ -59,8 +59,3 @@
     %main
       .container-fluid
         = yield
-
-    %footer
-      .container-fluid
-        .d-flex.p-3
-          Footer text
