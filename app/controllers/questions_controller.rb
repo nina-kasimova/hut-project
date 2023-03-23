@@ -1,17 +1,19 @@
 class QuestionsController < ApplicationController
   before_action :set_elective, only: [:new, :create, :index]
   def index
-    # Find the elective based on the elective_id passed in the URL
     @elective = Elective.find(params[:elective_id])
-  
-    # Fetch only the questions that belong to the specific elective
-    @questions = @elective.questions
-  end
+    @questions = @elective.questions.where(approved: true)
+  end  
   
   
     def show
       @question = Question.find(params[:id])
     end
+
+    def approve
+      @question.update(approved: true)
+      redirect_to admin_dashboard_index_path, notice: 'Question approved.'
+    end    
   
     def new
       @question = @elective.questions.build
@@ -19,13 +21,14 @@ class QuestionsController < ApplicationController
   
     def create
       @question = @elective.questions.build(question_params)
-  
+      @question.approved = false
+    
       if @question.save
         redirect_to @question, notice: 'Question was successfully created.'
       else
         render :new
       end
-    end
+    end    
   
     private
   
