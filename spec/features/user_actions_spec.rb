@@ -133,7 +133,7 @@ RSpec.describe 'Utilising the Questions and Answers on an elective as a user', t
     # This is the question with ID = 1
     submit_question
 
-    expect(page).to have_current_path('/questions/1')
+    expect(page).to have_current_path('/electives/9/questions')
     expect(page).to have_content('Test Title')
     expect(page).to have_content('Test Body')
   end
