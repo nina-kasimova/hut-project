@@ -1,0 +1,34 @@
+%h1 Admin Dashboard
+
+%h2 Questions
+%table
+  %thead
+    %tr
+      %th Question
+      %th Text
+      %th Actions
+  %tbody
+    - @questions.each do |question|
+      %tr
+        %td= question.title
+        %td= question.body
+        %td
+          - unless question.approved
+            = link_to 'Approve', approve_question_path(question), method: :put
+            \|
+          = link_to 'Deny', question, method: :delete, data: { confirm: 'Are you sure?' }
+
+%h2 Answers
+%table
+  %thead
+    %tr
+      %th Answer
+      %th Actions
+  %tbody
+    - @answers.each do |answer|
+      %tr
+        %td= answer.body
+        %td
+          - unless answer.approved
+            = link_to 'Approve', approve_answer_path(answer), method: :put
+          = link_to 'Deny', question_answers_path(answer.question, answer), method: :delete, data: { confirm: 'Are you sure?' }

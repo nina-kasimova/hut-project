@@ -1,6 +1,7 @@
-= form_with model: [question, answer], local: true do |form|
-  %div
-    = form.label :body
-    = form.text_area :body
-  %div
-    = form.submit 'Submit Answer'
+= simple_form_for [question, answer], html: {multipart: true} do |f|
+  = f.error_notification
+
+  = f.input :body, label: 'Body', as: :text, required: true
+
+  .actions
+    = f.button :submit, 'Submit Answer'
