@@ -3,6 +3,7 @@
 # Table name: answers
 #
 #  id          :bigint           not null, primary key
+#  approved    :boolean
 #  body        :text
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
