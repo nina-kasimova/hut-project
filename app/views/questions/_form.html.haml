@@ -1,22 +1,9 @@
-= form_with(model: [(@elective), (@question)], local: true) do |form|
-  = form.hidden_field :elective_id, value: @elective.id
-  - if question.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(question.errors.count, "error")} prohibited this question from being saved:"
-      %ul
-        - question.errors.full_messages.each do |message|
-          %li= message
+= simple_form_for [@elective, @question], html: {multipart: true} do |f|
+  = f.error_notification
+  = f.input :elective_id, as: :hidden, input_html: {value: @elective.id}
 
-  .field
-    = form.label :title
-    %br/
-    = form.text_field :title
-
-  .field
-    = form.label :body
-    %br/
-    = form.text_area :body
+  = f.input :title, label: 'Title', required: true
+  = f.input :body, label: 'Body', as: :text, required: true
 
   .actions
-    = form.submit
-
+    = f.button :submit

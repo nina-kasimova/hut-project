@@ -11,8 +11,25 @@ class AnswersController < ApplicationController
         else
           render 'questions/show'
         end
-      end      
-  
+      end
+      
+      def index
+        @question = Question.find(params[:question_id])
+        @answers = @question.answers.where(approved: true)
+      end
+
+      def approve
+        @answer = Answer.find(params[:id])
+        @answer.update(approved: true)
+        redirect_to admin_dashboard_path, notice: 'Answer approved.'
+      end
+
+      def destroy
+        @answer = Answer.find(params[:id])
+        @answer.destroy
+        redirect_to admin_dashboard_path, notice: 'Answer denied and deleted.'
+      end
+            
     private
   
     def set_question
@@ -27,4 +44,3 @@ class AnswersController < ApplicationController
       params.require(:answer).permit(:body)
     end
   end
-  

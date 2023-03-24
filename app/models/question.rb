@@ -3,6 +3,7 @@
 # Table name: questions
 #
 #  id          :bigint           not null, primary key
+#  approved    :boolean
 #  body        :text
 #  title       :string
 #  created_at  :datetime         not null

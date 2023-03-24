@@ -17,5 +17,13 @@
 #  fk_rails_...  (question_id => questions.id)
 #
 class Answer < ApplicationRecord
-  belongs_to :question
+  belongs_to :question  
+  after_initialize :set_default_values
+
+  private
+
+  def set_default_values
+    self.approved ||= false
+  end
+
 end

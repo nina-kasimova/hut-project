@@ -7,6 +7,7 @@ class Ability
     user ||= User.new
     if user.admin?
       can :manage, Elective
+      can :manage, Question
     else
       can [:read], Elective
     end
