@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   resources :questions do
-    resources :answers do
-      member do
-        put :approve
-      end
+    resources :answers, shallow: true do
+      put 'approve', on: :member
+      delete 'deny', on: :member
     end
+    put 'approve', on: :member
   end
+
 
   devise_for :users
   resources :electives do

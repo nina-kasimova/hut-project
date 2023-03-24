@@ -4,12 +4,14 @@
   %thead
     %tr
       %th Question
+      %th Text
       %th Approved
       %th Actions
   %tbody
     - @questions.each do |question|
       %tr
         %td= question.title
+        %td= question.body
         %td= question.approved ? 'Yes' : 'No'
         %td
           - unless question.approved
@@ -31,5 +33,5 @@
         %td= answer.approved ? 'Yes' : 'No'
         %td
           - unless answer.approved
-            = link_to 'Approve', approve_question_answer_path(answer.question, answer), method: :put
-          = link_to 'Deny', question_answer_path(answer.question, answer), method: :delete, data: { confirm: 'Are you sure?' }
+            = link_to 'Approve', approve_answer_path(answer), method: :put
+          = link_to 'Deny', question_answers_path(answer.question, answer), method: :delete, data: { confirm: 'Are you sure?' }
