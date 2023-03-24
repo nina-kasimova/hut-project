@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   resources :questions do
-    resources :answers, shallow: true
-    put 'approve', on: :member
+    resources :answers do
+      member do
+        put :approve
+      end
+    end
   end
 
   devise_for :users

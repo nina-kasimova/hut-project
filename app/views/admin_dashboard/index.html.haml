@@ -16,3 +16,20 @@
             = link_to 'Approve', approve_question_path(question), method: :put
             \|
           = link_to 'Deny', question, method: :delete, data: { confirm: 'Are you sure?' }
+
+%h2 Answers
+%table
+  %thead
+    %tr
+      %th Answer
+      %th Approved
+      %th Actions
+  %tbody
+    - @answers.each do |answer|
+      %tr
+        %td= answer.body
+        %td= answer.approved ? 'Yes' : 'No'
+        %td
+          - unless answer.approved
+            = link_to 'Approve', approve_question_answer_path(answer.question, answer), method: :put
+          = link_to 'Deny', question_answer_path(answer.question, answer), method: :delete, data: { confirm: 'Are you sure?' }

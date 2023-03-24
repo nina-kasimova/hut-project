@@ -1,9 +1,10 @@
 class AdminDashboardController < ApplicationController
-    before_action :authenticate_admin
-  
-    def index
-      @questions = Question.where(approved: false)
-    end
+  load_and_authorize_resource class: Question, except: :index
+
+  def index
+    @questions = Question.where(approved: false)
+    @answers = Answer.where(approved: false)
+  end
   
     private
   
