@@ -20,7 +20,7 @@
 #
 FactoryBot.define do
   factory :question do
-    title { "MyString" }
-    body { "MyText" }
+    title { "Test Title" }
+    body { "Test Body" }
   end
 end
