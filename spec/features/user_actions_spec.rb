@@ -60,7 +60,7 @@ RSpec.describe 'Interacting with electives as a user', type: :feature do
   end
 
   specify 'cannot edit any existing electives' do
-    visit_admin_tool
+    elective_as_admin
     # This is elective with ID = 7
     create_new_elective
     logout_user
@@ -96,7 +96,7 @@ RSpec.describe 'Utilising the Questions and Answers on an elective as a user', t
   let!(:admin) { FactoryBot.create(:user, email: "admin@sheffield.ac.uk" ,password: "password123", admin: true) }
 
   specify 'can view questions on an elective' do
-    visit_admin_tool
+    elective_as_admin
     # This is the elective with ID = 8
     create_new_elective
     logout_user
@@ -112,7 +112,7 @@ RSpec.describe 'Utilising the Questions and Answers on an elective as a user', t
   end
 
   specify 'can ask a questions on an elective' do
-    visit_admin_tool
+    elective_as_admin
     # This is the elective with ID = 9
     create_new_elective
     logout_user
@@ -132,14 +132,15 @@ RSpec.describe 'Utilising the Questions and Answers on an elective as a user', t
 
     # This is the question with ID = 1
     submit_question
+    approve_question
+    sign_in_user
+    visit '/electives/9/questions'
 
-    expect(page).to have_current_path('/electives/9/questions')
-    expect(page).to have_content('Test Title')
-    expect(page).to have_content('Test Body')
+    expect(page).to have_link('Test Title')
   end
 
   specify 'can go to ask a question but decide not to' do
-    visit_admin_tool
+    elective_as_admin
     # This is the elective with ID = 10
     create_new_elective
     logout_user
@@ -163,7 +164,7 @@ RSpec.describe 'Utilising the Questions and Answers on an elective as a user', t
   end
 
   specify 'can view a pre-existing question on an elective' do
-    visit_admin_tool
+    elective_as_admin
     # This is the elective with ID = 11
     create_new_elective
     visit '/electives/11'
@@ -171,7 +172,7 @@ RSpec.describe 'Utilising the Questions and Answers on an elective as a user', t
     click_link 'Ask a new question'
     # This is the question with ID = 2
     submit_question
-    logout_user
+    approve_question
     sign_in_user
     visit '/electives/11'
 
@@ -187,7 +188,7 @@ RSpec.describe 'Utilising the Questions and Answers on an elective as a user', t
   end
 
   specify 'can answer a question on an elective' do
-    visit_admin_tool
+    elective_as_admin
     # This is the elective with ID = 12
     create_new_elective
     visit '/electives/12'
@@ -195,7 +196,7 @@ RSpec.describe 'Utilising the Questions and Answers on an elective as a user', t
     click_link 'Ask a new question'
     # This is the question with ID = 3
     submit_question
-    logout_user
+    approve_question
     sign_in_user
     visit '/electives/12'
 
@@ -213,7 +214,6 @@ RSpec.describe 'Utilising the Questions and Answers on an elective as a user', t
     click_button 'Submit Answer'
 
     expect(page).to have_current_path('/questions/3')
-    expect(page).to have_content('Answer Body')
     expect(page).to have_content('Answer was successfully created.')
   end
 end

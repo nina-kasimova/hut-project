@@ -112,9 +112,14 @@ RSpec.configure do |config|
     visit '/'
   end
 
-  def visit_admin_tool
+  def elective_as_admin
     sign_in_admin
     click_on 'Elective'
+  end
+
+  def visit_dashboard
+    sign_in_admin
+    click_on 'Admin Dashboard'
   end
 
   def create_user_account
@@ -167,7 +172,7 @@ RSpec.configure do |config|
   end
 
   def signin_user_with_elective
-    visit_admin_tool
+    elective_as_admin
     create_new_elective
     click_on 'Back'
     logout_user
@@ -178,5 +183,19 @@ RSpec.configure do |config|
     fill_in 'question_title', with: 'Test Title'
     fill_in 'question_body', with: 'Test Body'
     click_on 'Create Question'
+  end
+
+  def approve_question
+    visit_dashboard
+    click_link 'Approve'
+    logout_user
+    visit '/'
+  end
+
+  def deny_question
+    visit_dashboard
+    click_link 'Deny'
+    logout_user
+    visit '/'
   end
 end

@@ -21,16 +21,24 @@ RSpec.describe 'Interacting with site as an admin', type: :feature do
     expect(page).to have_current_path("/")
   end
   
-  specify 'can visit the admin tool page' do
-    visit_admin_tool
+  specify 'can visit the electives page' do
+    elective_as_admin
 
     expect(page).to have_current_path('/electives')
     expect(page).to have_content("Listing Electives")
     expect(page).to have_link("New Elective")
   end
 
+  specify 'can visit the admin dashboard' do
+    visit_dashboard
+
+    expect(page).to have_current_path('/admin_dashboard')
+    expect(page).to have_content("Admin Dashboard")
+    expect(page).to have_content("Questions")
+  end
+
   specify 'can create new elective via admin tool page' do
-    visit_admin_tool
+    elective_as_admin
 
     expect(page).to have_link("New Elective")
 
@@ -49,7 +57,7 @@ RSpec.describe 'Interacting with site as an admin', type: :feature do
   end
 
   specify 'can expand an elective' do
-    visit_admin_tool
+    elective_as_admin
     # This is elective with ID = 2
     create_new_elective
     click_on 'Back'
@@ -65,7 +73,7 @@ RSpec.describe 'Interacting with site as an admin', type: :feature do
   end
 
   specify 'can edit a newly created elective' do
-    visit_admin_tool
+    elective_as_admin
     # This is elective with ID = 3
     create_new_elective
     click_on 'Back'
@@ -81,7 +89,7 @@ RSpec.describe 'Interacting with site as an admin', type: :feature do
   end
 
   specify 'can delete newly created elective' do
-    visit_admin_tool
+    elective_as_admin
     # This is elective with ID = 4
     create_new_elective
     click_on 'Back'
@@ -92,7 +100,7 @@ RSpec.describe 'Interacting with site as an admin', type: :feature do
   end
 
   specify 'can view the questions on an elective' do
-    visit_admin_tool
+    elective_as_admin
     # This is elective with ID = 5
     create_new_elective
     click_link 'View Questions'
