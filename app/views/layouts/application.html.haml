@@ -19,36 +19,36 @@
 
   %body
     %header.navbar.navbar-expand-lg.bg-light.mb-3
-      .container-fluid.logoWrapper
+      .container-fluid
         = link_to '/', class: 'navbar-brand' do
           = image_pack_tag 'uniLogo.png', height: 50
-
         %button.navbar-toggler{ type: :button, data: { bs_toggle: :collapse, bs_target: '#navbar-content' }, aria: { controls: 'navbar-content', expanded: 'false', label: 'Toggle navigation' } }
           %span.navbar-toggler-icon
-
-        %ul
-          %li
-            = link_to 'Home', electives_url, title: 'Go to the home page', class: 'nav-link px-2'
-          - if can?(:read, Elective)
-            %li
-              = link_to 'Elective', electives_url, title: 'Go to the elective page', class: 'nav-link px-2'
-          %li
-            = link_to 'WP Support', wp_support_path, title: 'Go to the WP Support page', class: 'nav-link px-2'
-          %li
-            = link_to 'Search', search_path, title: 'Go to the elective search page', class: 'nav-link px-2'
-          %li
-            = link_to 'Finances', finances_path, title: 'Go to the finance page', class: 'nav-link px-2'
-          %li
-            = link_to 'FAQ', faq_path, title: 'Go to the FAQ page', class: 'nav-link px-2'
-          - if user_signed_in?
-            %li
-              = link_to 'Settings', edit_user_registration_path, title: 'Go to the settings page', class: 'nav-link px-2'
-            %li
-              = link_to destroy_user_session_path, method: :delete, class: 'nav-link' do
-                Logout
-          - else
-            %li
-              = link_to 'Login', new_user_session_path, class: 'nav-link'
+        #navbar-content.navbar-collapse.collapse
+          %nav.navbar-nav
+            %ul#navlist
+              %li
+                = link_to 'Home', electives_url, title: 'Go to the home page', class: 'nav-link px-2'
+              - if can?(:read, Elective)
+                %li
+                  = link_to 'Elective', electives_url, title: 'Go to the elective page', class: 'nav-link px-2'
+              %li
+                = link_to 'WP Support', wp_support_path, title: 'Go to the WP Support page', class: 'nav-link px-2'
+              %li
+                = link_to 'Search', search_path, title: 'Go to the elective search page', class: 'nav-link px-2'
+              %li
+                = link_to 'Finances', finances_path, title: 'Go to the finance page', class: 'nav-link px-2'
+              %li
+                = link_to 'FAQ', faq_path, title: 'Go to the FAQ page', class: 'nav-link px-2'
+            - if user_signed_in?
+              %li
+                = link_to 'Settings', edit_user_registration_path, title: 'Go to the settings page', class: 'nav-link px-2'
+              %li
+                = link_to destroy_user_session_path, method: :delete, class: 'nav-link' do
+                  Logout
+            - else
+              %li
+                = link_to 'Login', new_user_session_path, class: 'nav-link'
 
     - if flash.present?
       .container-fluid.flash-messages
@@ -60,7 +60,4 @@
       .container-fluid
         = yield
 
-    %footer
-      .container-fluid
-        .d-flex.p-3
-          Footer text
+   
