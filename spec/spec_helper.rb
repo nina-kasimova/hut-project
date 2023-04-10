@@ -185,6 +185,13 @@ RSpec.configure do |config|
     click_on 'Create Question'
   end
 
+  def submit_answer
+    fill_in 'answer_body', with: 'Test Answer Body'
+    click_on 'Submit Answer'
+    logout_user
+    visit '/'
+  end
+
   def approve_question
     visit_dashboard
     click_link 'Approve'
@@ -197,5 +204,23 @@ RSpec.configure do |config|
     click_link 'Deny'
     logout_user
     visit '/'
+  end
+
+  def approve_answer
+    visit_dashboard
+    click_link 'Approve'
+    logout_user
+    visit '/'
+  end
+
+  def deny_answer
+    visit_dashboard
+    click_link 'Deny'
+    logout_user
+    visit '/'
+  end
+
+  def reload_page
+    visit current_path
   end
 end

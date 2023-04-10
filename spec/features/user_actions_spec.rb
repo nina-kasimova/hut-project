@@ -21,14 +21,6 @@ RSpec.describe 'Logging in, logging out and changing account as a user', type: :
     expect(page).to have_current_path("/")
     expect(page).to have_content("Your account has been updated successfully.")
   end
-
-  # specify 'User can cancel account' do
-  #   # Currently won't work (see method 'delete_account' in spec_helper.rb for details)
-  #   delete_account
-
-  #   expect(page).to have_current_path('/')
-  #   expect(page).to have_content('Bye! Your account has been successfully cancelled. We hope to see you again soon.')
-  # end
 end
 
 RSpec.describe 'Interacting with electives as a user', type: :feature do
@@ -37,7 +29,7 @@ RSpec.describe 'Interacting with electives as a user', type: :feature do
   let!(:ability) { Ability.new(user) }
 
   specify 'can expand an elective' do
-    # This is the elective with ID = 6 due to admin_spec running first
+    # This is the elective with ID = 9 due to admin_spec running first
     # And temporary electives are still in existence
     signin_user_with_elective
     
@@ -48,7 +40,7 @@ RSpec.describe 'Interacting with electives as a user', type: :feature do
 
     expect(page).to have_content("Elective details")
     expect(page).to have_link('Back')
-    expect(page).to have_current_path('/electives/6')
+    expect(page).to have_current_path('/electives/9')
   end
 
   specify 'cannot create any new electives' do
@@ -61,11 +53,11 @@ RSpec.describe 'Interacting with electives as a user', type: :feature do
 
   specify 'cannot edit any existing electives' do
     elective_as_admin
-    # This is elective with ID = 7
+    # This is elective with ID = 10
     create_new_elective
     logout_user
     sign_in_user
-    visit '/electives/7/edit'
+    visit '/electives/10/edit'
     
     expect(page).to have_content("You are not authorized to access this page.")
     expect(page).to have_current_path("/")
@@ -97,62 +89,62 @@ RSpec.describe 'Utilising the Questions and Answers on an elective as a user', t
 
   specify 'can view questions on an elective' do
     elective_as_admin
-    # This is the elective with ID = 8
+    # This is the elective with ID = 11
     create_new_elective
     logout_user
     sign_in_user
-    visit '/electives/8'
+    visit '/electives/11'
 
     expect(page).to have_link('View Questions')
 
     click_on 'View Questions'
 
     expect(page).to have_link('Ask a new question')
-    expect(page).to have_current_path('/electives/8/questions')
+    expect(page).to have_current_path('/electives/11/questions')
   end
 
   specify 'can ask a questions on an elective' do
     elective_as_admin
-    # This is the elective with ID = 9
+    # This is the elective with ID = 12
     create_new_elective
     logout_user
     sign_in_user
-    visit '/electives/9'
+    visit '/electives/12'
 
     expect(page).to have_link('View Questions')
 
     click_on 'View Questions'
 
     expect(page).to have_link('Ask a new question')
-    expect(page).to have_current_path('/electives/9/questions')
+    expect(page).to have_current_path('/electives/12/questions')
 
     click_link 'Ask a new question'
 
-    expect(page).to have_current_path('/electives/9/questions/new')
+    expect(page).to have_current_path('/electives/12/questions/new')
 
-    # This is the question with ID = 1
+    # This is the question with ID = 4
     submit_question
     approve_question
     sign_in_user
-    visit '/electives/9/questions'
+    visit '/electives/12/questions'
 
     expect(page).to have_link('Test Title')
   end
 
   specify 'can go to ask a question but decide not to' do
     elective_as_admin
-    # This is the elective with ID = 10
+    # This is the elective with ID = 13
     create_new_elective
     logout_user
     sign_in_user
-    visit '/electives/10'
+    visit '/electives/13'
 
     expect(page).to have_link('View Questions')
 
     click_on 'View Questions'
 
     expect(page).to have_link('Ask a new question')
-    expect(page).to have_current_path('/electives/10/questions')
+    expect(page).to have_current_path('/electives/13/questions')
 
     click_link 'Ask a new question'
 
@@ -160,21 +152,21 @@ RSpec.describe 'Utilising the Questions and Answers on an elective as a user', t
     
     click_link 'Back to questions'
 
-    expect(page).to have_current_path('/electives/10/questions')
+    expect(page).to have_current_path('/electives/13/questions')
   end
 
   specify 'can view a pre-existing question on an elective' do
     elective_as_admin
-    # This is the elective with ID = 11
+    # This is the elective with ID = 14
     create_new_elective
-    visit '/electives/11'
+    visit '/electives/14'
     click_link 'View Questions'
     click_link 'Ask a new question'
-    # This is the question with ID = 2
+    # This is the question with ID = 5
     submit_question
     approve_question
     sign_in_user
-    visit '/electives/11'
+    visit '/electives/14'
 
     expect(page).to have_link('View Questions')
 
@@ -184,21 +176,21 @@ RSpec.describe 'Utilising the Questions and Answers on an elective as a user', t
 
     click_link 'Test Title'
 
-    expect(page).to have_current_path('/questions/2')
+    expect(page).to have_current_path('/questions/5')
   end
 
   specify 'can answer a question on an elective' do
     elective_as_admin
-    # This is the elective with ID = 12
+    # This is the elective with ID = 15
     create_new_elective
-    visit '/electives/12'
+    visit '/electives/15'
     click_link 'View Questions'
     click_link 'Ask a new question'
-    # This is the question with ID = 3
+    # This is the question with ID = 6
     submit_question
     approve_question
     sign_in_user
-    visit '/electives/12'
+    visit '/electives/15'
 
     expect(page).to have_link('View Questions')
 
@@ -208,12 +200,42 @@ RSpec.describe 'Utilising the Questions and Answers on an elective as a user', t
 
     click_link 'Test Title'
 
-    expect(page).to have_current_path('/questions/3')
+    expect(page).to have_current_path('/questions/6')
     
     fill_in 'answer_body', with: 'Answer Body'
     click_button 'Submit Answer'
 
-    expect(page).to have_current_path('/questions/3')
+    expect(page).to have_current_path('/questions/6')
     expect(page).to have_content('Answer was successfully created.')
+  end
+
+  specify 'can refresh question creation form' do
+    elective_as_admin
+    # This is the elective with ID = 16
+    create_new_elective
+    visit '/electives/16'
+    click_link 'View Questions'
+    click_link 'Ask a new question'
+    # This is the question with ID = 7
+    submit_question
+    approve_question
+    sign_in_user
+    visit '/electives/16'
+
+    expect(page).to have_link('View Questions')
+
+    click_on 'View Questions'
+
+    expect(page).to have_link('Test Title')
+
+    click_link 'Test Title'
+
+    expect(page).to have_current_path('/questions/7')
+
+    fill_in 'answer_body', with: 'Answer Body'
+    click_button 'Submit Answer'
+    reload_page
+
+    expect(page).to have_current_path('/questions/7')
   end
 end
