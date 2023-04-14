@@ -52,14 +52,17 @@
           - else
             %li
               = link_to 'Login', new_user_session_path, class: 'nav-link'
-
+              
+    %main
+      .container-fluid
+        = yield
 
     - if flash.present?
       .container-fluid.flash-messages
         - flash.each do |message_type, message|
           - next unless message_type == 'alert' || message_type == 'notice'
-          .alert{ class: "alert-#{ message_type == 'notice' ? 'success' : 'danger' }" }= message
+          .alert{ class: "alert-#{ message_type == 'notice' ? 'success' : 'danger' }" }
+            = message
+            %button.alert-close{type: 'button'}
 
-    %main
-      .container-fluid
-        = yield
+    

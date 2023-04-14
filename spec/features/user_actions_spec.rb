@@ -239,3 +239,28 @@ RSpec.describe 'Utilising the Questions and Answers on an elective as a user', t
     expect(page).to have_current_path('/questions/7')
   end
 end
+
+RSpec.describe 'Interacting with the finances page', type: :feature do
+  let!(:user) { FactoryBot.create(:user, password: "password123") }
+  let!(:admin) { FactoryBot.create(:user, email: "admin@sheffield.ac.uk" ,password: "password123", admin: true) }
+  
+  specify 'can visit the finances page' do
+    sign_in_user
+    visit '/finances'
+
+    expect(page).to have_content('Financial Support')
+    expect(page).to have_current_path('/finances')
+  end
+
+  specify 'can interact with links on the finances page' do
+    sign_in_user
+    visit '/finances'
+
+    expect(page).to have_content('Financial Support')
+    expect(page).to have_current_path('/finances')
+
+    click_link 'Link'
+
+    expect(page).to have_current_path('/finances#')
+  end
+end
