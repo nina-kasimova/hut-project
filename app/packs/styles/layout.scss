@@ -25,7 +25,7 @@ body {
   padding-top: 0;
  }
 
-  header  ul {
+  header ul {
     display:flex;
   }
 
@@ -161,6 +161,7 @@ h4{
   margin: auto;
 }
 
+/*Alert stylings, including different styles for success and failure*/
 .alert {
   position: fixed;
   bottom: 0;
@@ -169,6 +170,21 @@ h4{
   text-align: center;
   margin: 1%;
   margin-left: 24%;
+  color: black;
+}
+
+.alert.alert-success {
+  background-color: lavender;
+  border-color: grey;
+  border-width: 2px;
+  border-style: outset;
+}
+
+.alert.alert-danger {
+  background-color: burlywood;
+  border-color: grey;
+  border-width: 2px;
+  border-style: outset;
 }
 
 .alert-close {
@@ -177,6 +193,7 @@ h4{
   right: 0;
   width: 15px;
   height: 15px;
-  margin: 3px;
-  color: inherit;
+  margin: 0.5%;
+  border-color: darkgrey;
+  background-color: grey;
 }
