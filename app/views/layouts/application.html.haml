@@ -28,9 +28,6 @@
         %ul
           %li
             = link_to 'Home', root_url, title: 'Go to the home page', class: 'nav-link px-2'
-          - if can?(:read, Elective)
-            %li
-              = link_to 'Elective', electives_url, title: 'Go to the elective page', class: 'nav-link px-2'
           %li
             = link_to 'WP Support', wp_support_path, title: 'Go to the WP Support page', class: 'nav-link px-2'
           %li
@@ -45,7 +42,6 @@
             - if current_user.admin?
               %li
                 = link_to 'Admin Dashboard', admin_dashboard_path, class: 'nav-link'
-
             %li
               = link_to destroy_user_session_path, method: :delete, class: 'nav-link' do
                 Logout

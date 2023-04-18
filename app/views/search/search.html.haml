@@ -1,3 +1,6 @@
+- if current_user.admin?
+  = link_to 'New Elective', new_elective_path, class: 'btn btn-outline-secondary ms-auto'
+  
 %h2 Search for an Elective:
 = simple_form_for :search, method: :get, remote: true, url: "search_electives" do |f|
   .card-body
