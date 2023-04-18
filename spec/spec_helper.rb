@@ -151,6 +151,7 @@ RSpec.configure do |config|
   end
 
   def create_new_elective
+    visit 'search'
     click_on 'New Elective'
     fill_in 'elective_Title', with: "Test Elective"
     fill_in 'elective_Description', with: "Lorem ipsum delorum"
