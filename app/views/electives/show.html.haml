@@ -22,3 +22,4 @@
       .card-footer.d-flex
         = link_to 'Edit', edit_elective_path(@elective), class: 'btn btn-link'
         = link_to 'View Questions', elective_questions_path(@elective), class: 'btn btn-link ms-auto'
+        = link_to 'Remove', @elective, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger ms-1 btn-sm'
