@@ -58,7 +58,7 @@ RSpec.describe 'Interacting with site as an admin', type: :feature do
     expect(page).to have_content("Test Elective")
     expect(page).to have_current_path("/electives/1")
 
-    click_on 'Back'
+    visit '/electives'
 
     expect(page).to have_current_path("/electives")
     within(:css, "table") { expect(page).to have_content 'Test Elective' }
@@ -69,7 +69,7 @@ RSpec.describe 'Interacting with site as an admin', type: :feature do
     elective_as_admin
     # This is elective with ID = 2
     create_new_elective
-    click_on 'Back'
+    visit '/electives'
     
     expect(page).to have_current_path('/electives')
 
@@ -77,7 +77,7 @@ RSpec.describe 'Interacting with site as an admin', type: :feature do
 
     expect(page).to have_content("Elective details")
     expect(page).to have_link('Edit')
-    expect(page).to have_link('Back')
+    expect(page).to have_link('Remove')
     expect(page).to have_current_path('/electives/2')
   end
 
@@ -85,13 +85,12 @@ RSpec.describe 'Interacting with site as an admin', type: :feature do
     elective_as_admin
     # This is elective with ID = 3
     create_new_elective
-    click_on 'Back'
     click_on 'Edit'
 
     expect(page).to have_current_path('/electives/3/edit')
 
     edit_elective
-    click_on 'Back'
+    visit '/electives'
 
     expect(page).to have_current_path('/electives')
     within(:css, "table") { expect(page).to have_content '1234' }
@@ -101,8 +100,7 @@ RSpec.describe 'Interacting with site as an admin', type: :feature do
     elective_as_admin
     # This is elective with ID = 4
     create_new_elective
-    click_on 'Back'
-    click_on 'Destroy'
+    click_on 'Remove'
 
     expect(page).to have_content("Elective was successfully destroyed.")
     expect(page).to have_current_path('/electives')

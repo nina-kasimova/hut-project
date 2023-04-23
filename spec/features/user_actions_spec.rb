@@ -35,11 +35,10 @@ RSpec.describe 'Interacting with electives as a user', type: :feature do
     
     expect(page).to have_current_path('/')
 
-    click_on 'Elective'
+    visit '/electives'
     click_on 'Show'
 
     expect(page).to have_content("Elective details")
-    expect(page).to have_link('Back')
     expect(page).to have_current_path('/electives/9')
   end
 

@@ -114,7 +114,7 @@ RSpec.configure do |config|
 
   def elective_as_admin
     sign_in_admin
-    click_on 'Elective'
+    visit '/electives'
   end
 
   def visit_dashboard
@@ -151,7 +151,7 @@ RSpec.configure do |config|
   end
 
   def create_new_elective
-    visit 'search'
+    visit '/search'
     click_on 'New Elective'
     fill_in 'elective_Title', with: "Test Elective"
     fill_in 'elective_Description', with: "Lorem ipsum delorum"
@@ -175,7 +175,6 @@ RSpec.configure do |config|
   def signin_user_with_elective
     elective_as_admin
     create_new_elective
-    click_on 'Back'
     logout_user
     sign_in_user
   end
