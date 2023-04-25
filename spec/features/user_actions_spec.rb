@@ -255,11 +255,8 @@ RSpec.describe 'Interacting with the finances page', type: :feature do
     sign_in_user
     visit '/finances'
 
-    expect(page).to have_content('Financial Support')
-    expect(page).to have_current_path('/finances')
-
-    click_link 'Link'
-
-    expect(page).to have_current_path('/finances#')
+    expect(page).to have_link("Undergraduate Financial Support")
+    expect(page).to have_link("Scholarship Information")
+    expect(page).to have_link("Additional Financial Support")
   end
 end
