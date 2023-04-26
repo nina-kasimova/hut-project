@@ -197,3 +197,119 @@ h4{
   border-color: darkgrey;
   background-color: grey;
 }
+
+/*Styling for the settings page for editing existing account*/
+.container-fluid .field {
+  margin-left: 1%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  font-size: 1.2rem;
+}
+
+.container-fluid .field label {
+  font-size: 1.2rem;
+}
+
+.container-fluid #wp.field label {
+  padding-left: 0.25%;
+  padding-right: 0.25%;
+  border: 1px solid rgb(0, 0, 0);
+  background-color: whitesmoke;
+}
+
+.container-fluid .actions input {
+  margin-left: 1%;
+  margin-bottom: 1%;
+  font-size: 1.2rem;
+}
+
+.container-fluid .cancel {
+  background-color: lightgrey;
+  border: 2px solid grey;
+}
+
+.container-fluid form#edit_user.edit_user {
+  background-color: lightgrey;
+  border: 2px solid grey;
+}
+
+.container-fluid .cancel h3 {
+  margin-top: 1%;
+  margin-left: 1%;
+  font-size: 1.7rem;
+  font-style: oblique;
+}
+
+.container-fluid .cancel #text {
+  margin-top: 1%;
+  margin-left: 1%;
+  margin-bottom: 1%;
+  font-size: 1.2rem;
+}
+
+.container-fluid .cancel #buttons {
+  margin-top: 1%;
+  margin-left: 1%;
+  margin-bottom: 1%;
+  font-size: 1.2rem;
+}
+
+.container-fluid #return {
+  margin-top: 1%;
+}
+
+.container-fluid #return a {
+  color: black;
+  text-decoration: none;
+  border: 2px solid black;
+  padding-left: 0.25%;
+  padding-right: 0.25%;
+  padding-bottom: 0.25%;
+  background-color: white;
+  font-size: 1.2rem;
+}
+
+.container-fluid #return a:hover {
+  color: blue;
+  font-size: 1.25rem;
+}
+
+.container-fluid .settings-heading {
+  text-align: center;
+  width: 50%;
+  margin: auto;
+}
+
+.container-fluid .settings-heading h2 {
+  font-size: 2.2rem;
+  font-style: oblique;
+}
+
+.container-fluid .settings-heading p {
+  font-size: 1.2rem;
+}
+
+.container-fluid #error_explanation {
+  margin: 1%;
+  border: 2px solid grey;
+  background-color: darkred;
+  color: white;
+}
+
+.container-fluid #error_explanation {
+  margin: 1%;
+  border: 2px solid grey;
+  background-color: darkred;
+  color: white;
+}
+
+.container-fluid #error_explanation ul {
+  margin: auto;
+  padding: 0.5%;
+  text-align: center;
+  list-style-type: none;
+}
+
+.container-fluid form#edit_user.edit_user input {
+  background-color: white;
+}
