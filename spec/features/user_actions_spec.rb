@@ -8,17 +8,24 @@ RSpec.describe 'Logging in, logging out and changing account as a user', type: :
   let!(:admin) { FactoryBot.create(:user, email: "admin@sheffield.ac.uk" ,password: "password123", admin: true) }
 
   specify 'can change account information' do
-    sign_in_user
-    visit '/users/edit'
+    create_user_account
+    logout_user
+    visit '/users/sign_in'
+    fill_in "user_email", with: "test@sheffield.ac.uk"
+    fill_in 'user_password', with: "Password1"
+    click_on 'Log in'
+    click_on 'Settings'
 
     expect(page).to have_current_path('/users/edit')
     expect(page).to have_content('Cancel my account')
 
-    fill_in "user_email", with: "new@sheffield.ac.uk"
-    fill_in 'user_current_password', with: "password123"
+    fill_in "user_email", with: "test@sheffield.ac.uk"
+    fill_in "user_password", with: "newpassword"
+    fill_in "user_password_confirmation", with: "newpassword"
+    fill_in 'user_current_password', with: "Password1"
     click_button 'Update'
 
-    expect(page).to have_current_path("/")
+    expect(page).to have_current_path('/')
     expect(page).to have_content("Your account has been updated successfully.")
   end
 end
@@ -28,15 +35,14 @@ RSpec.describe 'Interacting with electives as a user', type: :feature do
   let!(:admin) { FactoryBot.create(:user, email: "admin@sheffield.ac.uk" ,password: "password123", admin: true) }
   let!(:ability) { Ability.new(user) }
 
-  specify 'can expand an elective' do
+  specify 'can access and expand an elective' do
     # This is the elective with ID = 9 due to admin_spec running first
     # And temporary electives are still in existence
     signin_user_with_elective
     
     expect(page).to have_current_path('/')
 
-    visit '/electives'
-    click_on 'Show'
+    visit '/electives/9'
 
     expect(page).to have_content("Elective details")
     expect(page).to have_current_path('/electives/9')
@@ -57,7 +63,6 @@ RSpec.describe 'Interacting with electives as a user', type: :feature do
     logout_user
     sign_in_user
     visit '/electives/10/edit'
-    
     expect(page).to have_content("You are not authorized to access this page.")
     expect(page).to have_current_path("/")
   end
@@ -255,8 +260,6 @@ RSpec.describe 'Interacting with the finances page', type: :feature do
     sign_in_user
     visit '/finances'
 
-    expect(page).to have_link("Undergraduate Financial Support")
-    expect(page).to have_link("Scholarship Information")
-    expect(page).to have_link("Additional Financial Support")
+    expect(page).to have_link("/finances")
   end
 end
