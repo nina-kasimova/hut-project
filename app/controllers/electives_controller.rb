@@ -1,7 +1,7 @@
 class ElectivesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index]
-
+  before_action :authenticate_user!
   before_action :set_elective, only: %i[ show edit update destroy ]
+  before_action :authorize_elective
 
   authorize_resource
 
@@ -80,5 +80,9 @@ class ElectivesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def elective_params
       params.require(:elective).permit(:Title, :Description, :Speciality, :Location, :Accomodation, :WP_Support, :Type)
+    end
+
+    def authorize_elective
+      authorize! :manage, Elective
     end
 end
