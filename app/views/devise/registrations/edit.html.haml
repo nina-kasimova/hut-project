@@ -6,9 +6,9 @@
     %p
       Below you can alter your #{resource_name.to_s.humanize} account settings. This includes changing your password, updating your WP status
       or deleting this currently logged in account from our records permanently.
-
+  = render "devise/shared/error_messages", resource: resource
+  
   = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-    = render "devise/shared/error_messages", resource: resource
 
     .field
       = f.label :email
