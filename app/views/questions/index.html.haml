@@ -1,9 +1,33 @@
-%h1 Questions
+%h4.text= @elective.Title
+%h1 Questions & Answers
 
-= link_to 'Ask a new question', new_elective_question_path(@elective)
+%ul#accordion
+  %li
+    %label{:for => "first"}
+      Question 1
+      %span >
+    %input#first{:checked => "checked", :name => "accordion", :type => "radio"}/
+    .content
+      %p
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id commodi nisi aliquam ipsa est ullam minus quod harum itaque culpa nulla officiis fugiat perferendis natus nam totam eius, animi a.
+      = link_to 'Add a new answer', new_question_answer_path(@elective),class: 'btn btn-link'
+  %li
+    %label{:for => "second"}
+      Question 2
+      %span >
+    %input#second{:name => "accordion", :type => "radio"}/
+    .content
+      %p
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id commodi nisi aliquam ipsa est ullam minus quod harum itaque culpa nulla officiis fugiat perferendis natus nam totam eius, animi a.
+      = link_to 'Add a new answer', new_question_answer_path(@elective),class: 'btn btn-link'
+  %li
+    %label{:for => "third"}
+      Question 3
+      %span >
+    %input#third{:name => "accordion", :type => "radio"}/
+    .content
+      %p
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id commodi nisi aliquam ipsa est ullam minus quod harum itaque culpa nulla officiis fugiat perferendis natus nam totam eius, animi a.
+      = link_to 'Add a new answer', new_question_answer_path(@elective),class: 'btn btn-link'
 
-%ul
-  - @questions.each do |question|
-    %li
-      = link_to question.title, question_path(question)
-
+= link_to 'Ask a new question', new_elective_question_path(@elective),class: 'btn btn-link'
