@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+
 $background_colour:#c9d3dd;
 $box_colour:#d3d3d3;
 $separator_colour:#2b2b2a;
 
 body {
 background-color: $background_colour;
+font-family: 'Source Sans Pro', sans-serif;
 }
 
 .topbox {
