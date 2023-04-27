@@ -19,6 +19,8 @@ class SearchController < ApplicationController
 			respond_to do |format|
 				# format.html {redirect_to new_user_dashboard_index_path}
 				format.js {render layout: false}
+				format.html {render layout: false}
+				format.any { head :not_acceptable }
 			end
 		end
 	end
