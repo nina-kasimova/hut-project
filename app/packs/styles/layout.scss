@@ -307,3 +307,14 @@ h4{
 .container-fluid form#edit_user.edit_user input {
   background-color: white;
 }
+
+/*Sign up CSS styling*/
+
+.container-fluid form#new_user.new_user {
+  background-color: lightgrey;
+  border: 2px solid grey;
+}
+
+.container-fluid form#new_user.new_user input {
+  background-color: white;
+}
