@@ -22,4 +22,4 @@
           .actions
             - unless answer.approved
               = link_to 'Approve', approve_answer_path(answer), method: :put, class:"approve-btn"
-            = link_to 'Deny', question_answers_path(answer.question, answer), method: :delete, data: { confirm: 'Are you sure?' },class:"deny-btn"
+            = link_to 'Deny', answer_path(answer), method: :delete, data: { confirm: 'Are you sure?' },class:"deny-btn"
