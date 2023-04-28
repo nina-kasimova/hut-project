@@ -225,12 +225,12 @@ h4{
 
 .container-fluid .cancel {
   background-color: lightgrey;
-  border: 2px solid grey;
+  border: 2px solid black;
 }
 
 .container-fluid form#edit_user.edit_user {
   background-color: lightgrey;
-  border: 2px solid grey;
+  border: 2px solid black;
 }
 
 .container-fluid .cancel h3 {
@@ -312,7 +312,7 @@ h4{
 
 .container-fluid form#new_user.new_user {
   background-color: lightgrey;
-  border: 2px solid grey;
+  border: 2px solid black;
 }
 
 .container-fluid form#new_user.new_user input {
@@ -363,4 +363,27 @@ h4{
 
 .container-fluid form#new_user.new_user .card-footer a:hover {
   background-color: rgb(11,94,215);
+}
+
+.container-fluid form#new_user.simple_form.new_user {
+  margin: 1%
+}
+
+/*Fixes an issue with margin alignment on search page*/
+.container-fluid input#search_electives_button.btn {
+  margin: auto;
+  margin-top: 2%;
+}
+
+.container-fluid div#new-elective {
+  background-color: lightgrey;
+  padding: 1%;
+  border: 2px solid black;
+  margin-bottom: 1%;
+}
+
+.container-fluid form.simple_form.search {
+  border: 2px solid black;
+  background-color: lightgrey;
+  padding: 1%
 }
