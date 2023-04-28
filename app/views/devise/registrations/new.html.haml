@@ -15,6 +15,7 @@
     
     .field
       = f.label :password
+      %br
       = f.password_field :password, autocomplete: "new-password"
 
     .field
@@ -24,4 +25,5 @@
     %br
     .field
       = f.submit "Sign up"
-  
+  #return
+    = link_to "Return to Previous page", :back

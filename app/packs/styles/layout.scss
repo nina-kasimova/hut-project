@@ -318,3 +318,49 @@ h4{
 .container-fluid form#new_user.new_user input {
   background-color: white;
 }
+
+/*Login extra CSS styling*/
+.container-fluid form#new_user.new_user .card-footer a {
+  margin-left: 16px;
+  margin-bottom: 16px;
+  color: white;
+  border-radius: 4px;
+  padding: 6px 25px 8px 20px;
+  white-space: nowrap;
+  transition: 0.3s;
+  font-size:10px;
+  display: inline-block;
+  text-transform: uppercase;
+  border: 1px solid black;
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+  background-color:  #5125ad;
+  height: 30px;
+  text-decoration: none;
+}
+
+.container-fluid form#new_user.new_user .card-footer button {
+  margin-left: 16px;
+  color: white;
+  border-radius: 4px;
+  padding: 6px 25px 8px 20px;
+  white-space: nowrap;
+  transition: 0.3s;
+  font-size:10px;
+  display: inline-block;
+  text-transform: uppercase;
+  border: 1px solid black;
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+  background-color:  #5125ad;
+  height: 30px;
+  text-decoration: none;
+}
+
+.container-fluid form#new_user.new_user .card-footer button:hover {
+  background-color: rgb(11,94,215);
+}
+
+.container-fluid form#new_user.new_user .card-footer a:hover {
+  background-color: rgb(11,94,215);
+}
