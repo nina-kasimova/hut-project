@@ -4,13 +4,15 @@
 %ul#accordion
   %li
     %label{:for => "first"}
-      Question 1
+    - @questions.each do |question|
+      = question.title
       %span >
-    %input#first{:checked => "checked", :name => "accordion", :type => "radio"}/
-    .content
-      %p
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id commodi nisi aliquam ipsa est ullam minus quod harum itaque culpa nulla officiis fugiat perferendis natus nam totam eius, animi a.
-      = link_to 'Add a new answer', new_question_answer_path(@elective),class: 'btn btn-link'
+      %input#first{:checked => "checked", :name => "accordion", :type => "radio"}/
+      .content
+        - question.answers.where(approved: true).each do |answer|
+          %li 
+            %p=answer.body        
+
   %li
     %label{:for => "second"}
       Question 2
