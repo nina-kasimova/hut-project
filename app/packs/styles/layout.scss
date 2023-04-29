@@ -38,13 +38,6 @@ body {
     font-size: 15px;
   }
 
-  
-
-  /*header ul li a:hover{
-
-  }*/
-
-
   .btn {
      margin-left: 25px;
      color: white;
@@ -170,21 +163,27 @@ h4{
   text-align: center;
   margin: 1%;
   margin-left: 24%;
-  color: black;
+  color: white;
+  border-color: black;
+  border-width: 2px;
 }
 
 .alert.alert-success {
-  background-color: lavender;
-  border-color: grey;
-  border-width: 2px;
-  border-style: outset;
+  background-color:  #5125ad;
+}
+
+.alert.alert-success:hover {
+  background-color: rgb(11,94,215);
+  border-color: white;
 }
 
 .alert.alert-danger {
-  background-color: burlywood;
-  border-color: grey;
-  border-width: 2px;
-  border-style: outset;
+  background-color: rgb(200, 0, 0);
+}
+
+.alert.alert-danger:hover {
+  background-color: rgb(140, 0, 0);
+  border-color: white;
 }
 
 .alert-close {
@@ -194,8 +193,13 @@ h4{
   width: 15px;
   height: 15px;
   margin: 0.5%;
+  border-color: lightgrey;
+  background-color: white;
+}
+
+.alert-close:hover {
+  background-color: lightgrey;
   border-color: darkgrey;
-  background-color: grey;
 }
 
 /*Styling for the settings page for editing existing account*/
@@ -359,14 +363,12 @@ h4{
 
 .container-fluid form#new_user.new_user .card-footer button:hover {
   background-color: rgb(11,94,215);
+  border-color: white;
 }
 
 .container-fluid form#new_user.new_user .card-footer a:hover {
   background-color: rgb(11,94,215);
-}
-
-.container-fluid form#new_user.simple_form.new_user {
-  margin: 1%
+  border-color: white;
 }
 
 /*Fixes an issue with margin alignment on search page*/
@@ -380,6 +382,11 @@ h4{
   padding: 1%;
   border: 2px solid black;
   margin-bottom: 1%;
+}
+
+.container-fluid form#new_user.simple_form.new_user {
+  margin: 0%;
+  width: 100%;
 }
 
 .container-fluid form.simple_form.search {
