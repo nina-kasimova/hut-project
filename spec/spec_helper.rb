@@ -96,7 +96,6 @@ RSpec.configure do |config|
   # actions for testing e.g. logging in as a user/admin, and turns it into a singular
   # method call that can be used in any other testing file provided that file has a
   # <require_relative '../spec_helper.rb'> at the top of it (minus the <>).
-  
   def logout_user
     visit '/'
     click_on 'Logout'

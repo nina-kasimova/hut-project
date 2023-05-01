@@ -38,13 +38,6 @@ body {
     font-size: 15px;
   }
 
-  
-
-  /*header ul li a:hover{
-
-  }*/
-
-
   .btn {
      margin-left: 25px;
      color: white;
@@ -170,21 +163,27 @@ h4{
   text-align: center;
   margin: 1%;
   margin-left: 24%;
-  color: black;
+  color: white;
+  border-color: black;
+  border-width: 2px;
 }
 
 .alert.alert-success {
-  background-color: lavender;
-  border-color: grey;
-  border-width: 2px;
-  border-style: outset;
+  background-color:  #5125ad;
+}
+
+.alert.alert-success:hover {
+  background-color: rgb(11,94,215);
+  border-color: white;
 }
 
 .alert.alert-danger {
-  background-color: burlywood;
-  border-color: grey;
-  border-width: 2px;
-  border-style: outset;
+  background-color: rgb(200, 0, 0);
+}
+
+.alert.alert-danger:hover {
+  background-color: rgb(140, 0, 0);
+  border-color: white;
 }
 
 .alert-close {
@@ -194,8 +193,13 @@ h4{
   width: 15px;
   height: 15px;
   margin: 0.5%;
+  border-color: lightgrey;
+  background-color: white;
+}
+
+.alert-close:hover {
+  background-color: lightgrey;
   border-color: darkgrey;
-  background-color: grey;
 }
 
 /*Styling for the settings page for editing existing account*/
@@ -225,12 +229,12 @@ h4{
 
 .container-fluid .cancel {
   background-color: lightgrey;
-  border: 2px solid grey;
+  border: 2px solid black;
 }
 
 .container-fluid form#edit_user.edit_user {
   background-color: lightgrey;
-  border: 2px solid grey;
+  border: 2px solid black;
 }
 
 .container-fluid .cancel h3 {
@@ -306,4 +310,87 @@ h4{
 
 .container-fluid form#edit_user.edit_user input {
   background-color: white;
+}
+
+/*Sign up CSS styling*/
+
+.container-fluid form#new_user.new_user {
+  background-color: lightgrey;
+  border: 2px solid black;
+}
+
+.container-fluid form#new_user.new_user input {
+  background-color: white;
+}
+
+/*Login extra CSS styling*/
+.container-fluid form#new_user.new_user .card-footer a {
+  margin-left: 16px;
+  margin-bottom: 16px;
+  color: white;
+  border-radius: 4px;
+  padding: 6px 25px 8px 20px;
+  white-space: nowrap;
+  transition: 0.3s;
+  font-size:10px;
+  display: inline-block;
+  text-transform: uppercase;
+  border: 1px solid black;
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+  background-color:  #5125ad;
+  height: 30px;
+  text-decoration: none;
+}
+
+.container-fluid form#new_user.new_user .card-footer button {
+  margin-left: 16px;
+  color: white;
+  border-radius: 4px;
+  padding: 6px 25px 8px 20px;
+  white-space: nowrap;
+  transition: 0.3s;
+  font-size:10px;
+  display: inline-block;
+  text-transform: uppercase;
+  border: 1px solid black;
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+  background-color:  #5125ad;
+  height: 30px;
+  text-decoration: none;
+}
+
+.container-fluid form#new_user.new_user .card-footer button:hover {
+  background-color: rgb(11,94,215);
+  border-color: white;
+}
+
+.container-fluid form#new_user.new_user .card-footer a:hover {
+  background-color: rgb(11,94,215);
+  border-color: white;
+}
+
+/*Fixes an issue with margin alignment on search page*/
+.container-fluid input#search_electives_button.btn {
+  margin: auto;
+  margin-top: 2%;
+}
+
+.container-fluid div#new-elective {
+  background-color: lightgrey;
+  padding: 1%;
+  border: 2px solid black;
+  margin-bottom: 1%;
+}
+
+.container-fluid form#new_user.simple_form.new_user {
+  margin: 0%;
+  width: 100%;
+}
+
+.container-fluid form.simple_form.search {
+  border: 2px solid black;
+  background-color: lightgrey;
+  padding: 1%
 }

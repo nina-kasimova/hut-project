@@ -116,7 +116,7 @@ RSpec.describe 'Interacting with site as an admin', type: :feature do
     expect(page).to have_link('Ask a new question')
   end
 
-  specify 'can approve a requested question submission' do
+  specify 'can approve a requested question submission and see on that elective' do
     elective_as_admin
     # This is elective with ID = 6
     create_new_elective
@@ -127,7 +127,7 @@ RSpec.describe 'Interacting with site as an admin', type: :feature do
     approve_question
     sign_in_user
     visit '/electives/6'
-
+    save_page
     expect(page).to have_link('View Questions')
 
     click_on 'View Questions'
@@ -139,7 +139,7 @@ RSpec.describe 'Interacting with site as an admin', type: :feature do
     expect(page).to have_current_path('/questions/1')
   end
 
-  specify 'can deny a requested question submission' do
+  specify 'can deny a requested question submission and not see on that elective' do
     elective_as_admin
     # This is elective with ID = 7
     create_new_elective
@@ -171,20 +171,5 @@ RSpec.describe 'Interacting with site as an admin', type: :feature do
     visit '/electives/8/questions'
     
     expect(page).to have_link('Test Title')
-
-    # Need a routing path when deleting answers
-    # Currently cannot click deny button on dashboard and work
-    # Get No ROUTE error POST clicking deny
-
-    # click_on 'Test Title'
-
-    # expect(page).to have_content('Test Title')
-
-    # fill_in 'answer_body', with: 'Test Answer Body'
-    # click_on 'Submit Answer'
-    # click_on 'Deny'
-    # visit '/questions/3'
-
-    # expect(page).to_not have_content('Test Answer Body')
   end
 end
