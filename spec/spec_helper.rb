@@ -126,8 +126,8 @@ RSpec.configure do |config|
     click_on 'Login'
     click_on 'Sign up'
     fill_in  'user_email', with: "test@sheffield.ac.uk"
-    fill_in  'user_password', with: "Password1"
-    fill_in  'user_password_confirmation', with: "Password1"
+    fill_in  'user_password', with: "Password1!"
+    fill_in  'user_password_confirmation', with: "Password1!"
     click_on  'Sign up'
   end
 
