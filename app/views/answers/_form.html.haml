@@ -1,7 +1,7 @@
 = simple_form_for [question, answer], html: {multipart: true} do |f|
   = f.error_notification
 
-  = f.input :body, label: 'Body', as: :text, required: true
+  = f.input :body, label: 'Add new Answer', as: :text, required: true
 
   .actions
     = f.button :submit, 'Submit Answer'
