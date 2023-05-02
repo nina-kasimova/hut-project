@@ -4,8 +4,8 @@ require_relative '../spec_helper.rb'
 RSpec.describe 'Interacting with site as an admin', type: :feature do
   # Creates a temporary user with email 'my.email@sheffield.ac.uk' and password as below
   # from the factory bot file
-  let!(:user) { FactoryBot.create(:user, password: "password123") }
-  let!(:admin) { FactoryBot.create(:user, email: "admin@sheffield.ac.uk" ,password: "password123", admin: true) }
+  let!(:user) { FactoryBot.create(:user, password: "Password123!") }
+  let!(:admin) { FactoryBot.create(:user, email: "admin@sheffield.ac.uk" ,password: "Password123!", admin: true) }
 
   before :each do
     nil
@@ -127,7 +127,7 @@ RSpec.describe 'Interacting with site as an admin', type: :feature do
     approve_question
     sign_in_user
     visit '/electives/6'
-    save_page
+    
     expect(page).to have_link('View Questions')
 
     click_on 'View Questions'

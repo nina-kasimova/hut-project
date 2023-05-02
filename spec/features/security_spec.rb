@@ -3,8 +3,8 @@ require_relative '../spec_helper.rb'
 
 RSpec.describe 'User Authentication', type: :feature do
 
-	let!(:user) { FactoryBot.create(:user, password: "password123") }
-  	let!(:admin) { FactoryBot.create(:user, email: "admin@sheffield.ac.uk" ,password: "password123", admin: true) }
+	let!(:user) { FactoryBot.create(:user, password: "Password123!") }
+  	let!(:admin) { FactoryBot.create(:user, email: "admin@sheffield.ac.uk" ,password: "Password123!", admin: true) }
 
   	before :each do
     	nil
@@ -91,8 +91,8 @@ end
 
 RSpec.describe 'Vunerabilities', type: :feature do
 
-	let!(:admin) { FactoryBot.create(:user, email: "admin@sheffield.ac.uk" ,password: "password123", admin: true) }
-	let!(:user) { FactoryBot.create(:user, password: "password123") }
+	let!(:admin) { FactoryBot.create(:user, email: "admin@sheffield.ac.uk" ,password: "Password123!", admin: true) }
+	let!(:user) { FactoryBot.create(:user, password: "Password123!") }
 
 	before :each do
     	nil

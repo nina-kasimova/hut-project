@@ -4,15 +4,15 @@ require_relative '../spec_helper.rb'
 RSpec.describe 'Logging in, logging out and changing account as a user', type: :feature do
   # Creates a temporary user with email 'test@sheffield.ac.uk' and password as below
   # from the factory bot file
-  let!(:user) { FactoryBot.create(:user, password: "password123") }
-  let!(:admin) { FactoryBot.create(:user, email: "admin@sheffield.ac.uk" ,password: "password123", admin: true) }
+  let!(:user) { FactoryBot.create(:user, password: "Password123!") }
+  let!(:admin) { FactoryBot.create(:user, email: "admin@sheffield.ac.uk" ,password: "Password123!", admin: true) }
 
   specify 'can change account information' do
     create_user_account
     logout_user
     visit '/users/sign_in'
     fill_in "user_email", with: "test@sheffield.ac.uk"
-    fill_in 'user_password', with: "Password1"
+    fill_in 'user_password', with: "Password1!"
     click_on 'Log in'
     click_on 'Settings'
 
@@ -20,9 +20,9 @@ RSpec.describe 'Logging in, logging out and changing account as a user', type: :
     expect(page).to have_content('Cancel my account')
 
     fill_in "user_email", with: "test@sheffield.ac.uk"
-    fill_in "user_password", with: "newpassword"
-    fill_in "user_password_confirmation", with: "newpassword"
-    fill_in 'user_current_password', with: "Password1"
+    fill_in "user_password", with: "Newpassword1!"
+    fill_in "user_password_confirmation", with: "Newpassword1!"
+    fill_in 'user_current_password', with: "Password1!"
     click_button 'Update'
 
     expect(page).to have_current_path('/')
@@ -31,8 +31,8 @@ RSpec.describe 'Logging in, logging out and changing account as a user', type: :
 end
 
 RSpec.describe 'Interacting with electives as a user', type: :feature do
-  let!(:user) { FactoryBot.create(:user, password: "password123") }
-  let!(:admin) { FactoryBot.create(:user, email: "admin@sheffield.ac.uk" ,password: "password123", admin: true) }
+  let!(:user) { FactoryBot.create(:user, password: "Password123!") }
+  let!(:admin) { FactoryBot.create(:user, email: "admin@sheffield.ac.uk" ,password: "Password123!", admin: true) }
   let!(:ability) { Ability.new(user) }
 
   specify 'can access and expand an elective' do
@@ -44,7 +44,6 @@ RSpec.describe 'Interacting with electives as a user', type: :feature do
 
     visit '/electives'
     click_link 'Show'
-    save_page
     expect(page).to have_content("Elective details")
     expect(page).to have_current_path('/electives/1')
   end
@@ -89,8 +88,8 @@ end
 # end
 
 RSpec.describe 'Utilising the Questions and Answers on an elective as a user', type: :feature do
-  let!(:user) { FactoryBot.create(:user, password: "password123") }
-  let!(:admin) { FactoryBot.create(:user, email: "admin@sheffield.ac.uk" ,password: "password123", admin: true) }
+  let!(:user) { FactoryBot.create(:user, password: "Password123!") }
+  let!(:admin) { FactoryBot.create(:user, email: "admin@sheffield.ac.uk" ,password: "Password123!", admin: true) }
 
   specify 'can view questions on an elective' do
     elective_as_admin
@@ -246,8 +245,8 @@ RSpec.describe 'Utilising the Questions and Answers on an elective as a user', t
 end
 
 RSpec.describe 'Interacting with the finances page', type: :feature do
-  let!(:user) { FactoryBot.create(:user, password: "password123") }
-  let!(:admin) { FactoryBot.create(:user, email: "admin@sheffield.ac.uk" ,password: "password123", admin: true) }
+  let!(:user) { FactoryBot.create(:user, password: "Password123!") }
+  let!(:admin) { FactoryBot.create(:user, email: "admin@sheffield.ac.uk" ,password: "Password123!", admin: true) }
   
   specify 'can visit the finances page' do
     sign_in_user
