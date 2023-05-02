@@ -3,8 +3,8 @@ require_relative '../spec_helper.rb'
 require "cancan/matchers"
 
 RSpec.describe Ability, type: :model do
-    let!(:user) { FactoryBot.create(:user, password: "password123") }
-    let!(:admin) { FactoryBot.create(:user, email: "admin@sheffield.ac.uk" ,password: "password123", admin: true) }
+    let!(:user) { FactoryBot.create(:user, password: "Password123!") }
+    let!(:admin) { FactoryBot.create(:user, email: "admin@sheffield.ac.uk" ,password: "Password123!", admin: true) }
     
     # Tests the abilites of each role user and admin
     describe '.initialize' do
