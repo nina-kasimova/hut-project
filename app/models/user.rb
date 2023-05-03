@@ -28,5 +28,16 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-         :trackable
+         :trackable 
+  
+  validate :password_complexity
+
+  def password_complexity
+    if password.present?
+       if !password.match(/^(?=.*[a-z])(?=.*[A-Z])/) 
+         errors.add :password, "complexity requirement not met"
+       end
+    end
+  end
+
 end

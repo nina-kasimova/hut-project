@@ -9,13 +9,13 @@ body {
   display: flex;
   flex-direction: column;
   padding-left: 0;
-  
+
   /*Navigation menu*/
-  .navbar{
+  .navbar {
     height: 50px;
   }
 
-  #navlist{
+  #navlist {
     display: flex;
     align-items: end;
   }
@@ -26,10 +26,10 @@ body {
  }
 
   header ul {
-    display:flex;
+    display: flex;
   }
 
-  header ul li{
+  header ul li {
     margin: 0;
     list-style: none;
     position: relative;
@@ -37,13 +37,6 @@ body {
     padding: 23px 0 10px 22px;
     font-size: 15px;
   }
-
-  
-
-  /*header ul li a:hover{
-
-  }*/
-
 
   .btn {
      margin-left: 25px;
@@ -68,134 +61,310 @@ body {
     margin-top: auto;
   }
 
-  /*Widening Participation*/
-h2{
-  display: flex;
-  justify-content: center;
-  border: 2px ;
-}
+  /*Widening Participation Page*/
+  h2 {
+    display: flex;
+    justify-content: center;
+    border: 2px;
+  }
 
-hr{
- margin: auto;
- width: 98%;
- border-style: solid;
- border-color: black;
- height: 10px;
-}
+  hr {
+    margin: auto;
+    width: 98%;
+    border-style: solid;
+    border-color: black;
+    height: 10px;
+  }
 
-.short{
-  width: 65%;
-  margin-left: 0%;
-}
+  .short {
+    width: 65%;
+    margin-left: 0%;
+  }
 
-.space{
- margin: auto;
- padding: 25 50;
-}
+  .space {
+    margin: auto;
+    padding: 25px 50px;
+  }
 
-.body{
- text-align: center;
-}
+  .body {
+    text-align: center;
+  }
 
-.wpImage{
-  align-self: right;
-  padding: 0 10px 10px 500px;
-}
+  .wpImage {
+    padding: 0 10px 10px 500px;
+  }
 
-.middle{
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  text-decoration: underline;
-  color: blue;
-}
+  .middle {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    text-decoration: underline;
+    color: blue;
+  }
 
-.wpList{
-  text-align: left;
-  padding: 0 0 15px 25px;
-}
+  .wpList {
+    text-align: left;
+    padding: 0 0 15px 25px;
+  }
 
-.wp{
-  display: block;
-  text-align: left;
-}
-.contact{
-  font-size: 16px;
-}
+  .wp {
+    display: block;
+    text-align: left;
+  }
 
-.wpContact{
-  padding: 0 0 15px 50px;
-}
+  .contact {
+    font-size: 16px;
+  }
+
+  .wpContact {
+    padding: 0 0 15px 50px;
+  }
 
 
+  /*Financial Support Page*/
+  h2 {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+  }
 
-/*Financial Support Page*/
-h2{
-  display: flex;
-  justify-content: center;
-  margin: auto;
-}
+  .body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+  }
 
-.body{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 13px;
-}
+  p {
+    font-size: 13px;
+    padding: 0 0 15px 25px;
+  }
 
-p{
-  font-size: 13px;
-  padding: 0 0 15px 25px;
-}
 
-  
-h4{
-  font-size: 20px;
-}
+  h4 {
+    font-size: 20px;
+  }
 
-.fp{
-  list-style: none;
-}
+  .flash-messages {
+    margin: auto;
+  }
 
-}
+  /*Alert stylings, including different styles for success and failure*/
+  .alert {
+    position: fixed;
+    bottom: 0;
+    width: 50%;
+    padding: 0.5%;
+    text-align: center;
+    margin: 1%;
+    margin-left: 24%;
+    color: white;
+  border-color: black;
+  border-width: 2px;
+  }
 
-.flash-messages{
-  margin: auto;
-}
-
-/*Alert stylings, including different styles for success and failure*/
-.alert {
-  position: fixed;
-  bottom: 0;
-  width: 50%;
-  padding: 0.5%;
-  text-align: center;
-  margin: 1%;
-  margin-left: 24%;
-  color: black;
-}
-
+  .alert.alert-success {
+    background-color: lavender;
+    border-color: grey;
+    border-width: 2px;
+    border-style: outset;
+  }
 .alert.alert-success {
-  background-color: lavender;
-  border-color: grey;
-  border-width: 2px;
-  border-style: outset;
+  background-color:  #5125ad;
 }
 
-.alert.alert-danger {
-  background-color: burlywood;
-  border-color: grey;
-  border-width: 2px;
-  border-style: outset;
+.alert.alert-success:hover {
+  background-color: rgb(11,94,215);
+  border-color: white;
 }
 
-.alert-close {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 15px;
-  height: 15px;
-  margin: 0.5%;
-  border-color: darkgrey;
-  background-color: grey;
+  .alert.alert-danger {
+    background-color: burlywood;
+    border-color: grey;
+    border-width: 2px;
+    border-style: outset;
+  }
+
+  .alert-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 15px;
+    height: 15px;
+    margin: 0.5%;
+    border-color: darkgrey;
+    background-color: grey;
+  }
+
+  /*Styling for the settings page for editing existing account*/
+  .container-fluid .field {
+    margin-left: 1%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    font-size: 1.2rem;
+  }
+
+  .container-fluid .field label {
+    font-size: 1.2rem;
+  }
+
+  .container-fluid #wp.field label {
+    padding-left: 0.25%;
+    padding-right: 0.25%;
+    border: 1px solid rgb(0, 0, 0);
+    background-color: whitesmoke;
+  }
+
+  .container-fluid .actions input {
+    margin-left: 1%;
+    margin-bottom: 1%;
+    font-size: 1.2rem;
+  }
+
+  .container-fluid .cancel {
+    background-color: lightgrey;
+    border: 2px solid grey;
+  }
+
+  .container-fluid form#edit_user.edit_user {
+    background-color: lightgrey;
+    border: 2px solid grey;
+  }
+
+  .container-fluid .cancel h3 {
+    margin-top: 1%;
+    margin-left: 1%;
+    font-size: 1.7rem;
+    font-style: oblique;
+  }
+
+  .container-fluid .cancel #text {
+    margin-top: 1%;
+    margin-left: 1%;
+    margin-bottom: 1%;
+    font-size: 1.2rem;
+  }
+
+  .container-fluid .cancel #buttons {
+    margin-top: 1%;
+    margin-left: 1%;
+    margin-bottom: 1%;
+    font-size: 1.2rem;
+  }
+
+  .container-fluid #return {
+    margin-top: 1%;
+  }
+
+  .container-fluid #return a {
+    color: black;
+    text-decoration: none;
+    border: 2px solid black;
+    padding-left: 0.25%;
+    padding-right: 0.25%;
+    padding-bottom: 0.25%;
+    background-color: white;
+    font-size: 1.2rem;
+  }
+
+  .container-fluid #return a:hover {
+    color: blue;
+    font-size: 1.25rem;
+  }
+
+  .container-fluid .settings-heading {
+    text-align: center;
+    width: 50%;
+    margin: auto;
+  }
+
+  .container-fluid .settings-heading h2 {
+    font-size: 2.2rem;
+    font-style: oblique;
+  }
+
+  .container-fluid .settings-heading p {
+    font-size: 1.2rem;
+  }
+
+  .container-fluid #error_explanation {
+    margin: 1% auto;
+    border: 2px solid black;
+    background-color: rgb(200, 0, 0);
+    color: white;
+    width: 55%;
+  }
+
+  .container-fluid #error_explanation ul {
+    margin: auto;
+    padding: 0.5%;
+    text-align: center;
+    list-style-type: none;
+  }
+
+  .container-fluid form#edit_user.edit_user input {
+    background-color: white;
+  }
+
+  /*The FAQ Page*/
+  #accordion li {
+    list-style: none;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #fcfcfc;
+
+  }
+
+  #accordion li label {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    color: #000000;
+    background-color: #f0eff1;
+
+  }
+
+  #accordion li label span {
+    transform: rotate(90deg);
+    font-size: 22px;
+    color: #5125ad;
+  }
+
+  #accordion label + input[type="radio"] {
+    display: none;
+  }
+
+  #accordion .content {
+    padding: 0 10px;
+    line-height: 26px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s;
+  }
+
+
+  #accordion label + input[type="radio"]:checked + .content {
+    max-height: 400px;
+  }
+
+  h1 {
+    margin-bottom: 1%;
+    display: flex;
+    justify-content: center;
+  }
+
+  ul {
+    padding-left: 0%;
+  }
+
+  h4 {
+    display: flex;
+    justify-content: center;
+  }
 }

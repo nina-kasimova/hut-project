@@ -10,6 +10,6 @@ User.where(email:'ebarker4@sheffield.ac.uk').first_or_create(password:'password'
 User.where(email:'oosakue1@sheffield.ac.uk').first_or_create(password:'password', password_confirmation:'password').update(admin: true)
 User.where(email:'nkasimova1@sheffield.ac.uk').first_or_create(password:'password', password_confirmation:'password').update(admin: true)
 User.where(email:'jhogg2@sheffield.ac.uk').first_or_create(password:'password', password_confirmation:'password').update(admin: true)
-User.where(email:'tblewett1@sheffield.ac.uk').first_or_create(password:'password', password_confirmation:'password').update(admin: true)
+User.where(email:'smanisekaran1@sheffield.ac.uk').first_or_create(password:'password', password_confirmation:'password').update(admin: true)
 User.where(email:'t.yasseen@sheffield.ac.uk').first_or_create(password:'password', password_confirmation:'password').update(admin: true)
 User.where(email:'user@sheffield.ac.uk').first_or_create(password:'password', password_confirmation:'password')

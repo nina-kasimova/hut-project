@@ -57,8 +57,8 @@
       .container-fluid.flash-messages
         - flash.each do |message_type, message|
           - next unless message_type == 'alert' || message_type == 'notice'
-          .alert{ class: "alert-#{ message_type == 'notice' ? 'success' : 'danger' }" }
+          .alert{title:'Website Alert', class: "alert-#{ message_type == 'notice' ? 'success' : 'danger' }" }
             = message
-            %button.alert-close{type: 'button'}
+            %button.alert-close{type: 'button', title:'Close Alert'}
 
     
