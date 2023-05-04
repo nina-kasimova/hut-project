@@ -110,7 +110,7 @@ RSpec.describe 'Interacting with site as an admin', type: :feature do
     elective_as_admin
     # This is elective with ID = 5
     create_new_elective
-    click_link 'View Questions'
+    click_link 'View Q&A'
 
     expect(page).to have_current_path('/electives/5/questions')
     expect(page).to have_link('Ask a new question')
@@ -120,7 +120,7 @@ RSpec.describe 'Interacting with site as an admin', type: :feature do
     elective_as_admin
     # This is elective with ID = 6
     create_new_elective
-    click_link 'View Questions'
+    click_link 'View Q&A'
     click_link 'Ask a new question'
     # This is the question with ID = 1
     submit_question
@@ -128,9 +128,9 @@ RSpec.describe 'Interacting with site as an admin', type: :feature do
     sign_in_user
     visit '/electives/6'
     
-    expect(page).to have_link('View Questions')
+    expect(page).to have_link('View Q&A')
 
-    click_on 'View Questions'
+    click_link 'View Q&A'
 
     expect(page).to have_link('Test Title')
 
@@ -143,7 +143,7 @@ RSpec.describe 'Interacting with site as an admin', type: :feature do
     elective_as_admin
     # This is elective with ID = 7
     create_new_elective
-    click_link 'View Questions'
+    click_link 'View Q&A'
     click_link 'Ask a new question'
     # This is the question with ID = 2
     submit_question
@@ -151,9 +151,9 @@ RSpec.describe 'Interacting with site as an admin', type: :feature do
     sign_in_user
     visit '/electives/7'
 
-    expect(page).to have_link('View Questions')
+    expect(page).to have_link('View Q&A')
 
-    click_on 'View Questions'
+    click_link 'View Q&A'
 
     expect(page).to_not have_link('Test Title')
   end
@@ -162,7 +162,7 @@ RSpec.describe 'Interacting with site as an admin', type: :feature do
     elective_as_admin
     # This is elective with ID = 8
     create_new_elective
-    click_link 'View Questions'
+    click_link 'View Q&A'
     click_link 'Ask a new question'
     # This is the question with ID = 3
     submit_question

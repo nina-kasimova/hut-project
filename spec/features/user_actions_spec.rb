@@ -99,9 +99,9 @@ RSpec.describe 'Utilising the Questions and Answers on an elective as a user', t
     sign_in_user
     visit '/electives/3'
 
-    expect(page).to have_link('View Questions')
+    expect(page).to have_link('View Q&A')
 
-    click_on 'View Questions'
+    click_link 'View Q&A'
 
     expect(page).to have_link('Ask a new question')
     expect(page).to have_current_path('/electives/3/questions')
@@ -115,9 +115,9 @@ RSpec.describe 'Utilising the Questions and Answers on an elective as a user', t
     sign_in_user
     visit '/electives/4'
 
-    expect(page).to have_link('View Questions')
+    expect(page).to have_link('View Q&A')
 
-    click_on 'View Questions'
+    click_link 'View Q&A'
 
     expect(page).to have_link('Ask a new question')
     expect(page).to have_current_path('/electives/4/questions')
@@ -143,9 +143,9 @@ RSpec.describe 'Utilising the Questions and Answers on an elective as a user', t
     sign_in_user
     visit '/electives/5'
 
-    expect(page).to have_link('View Questions')
+    expect(page).to have_link('View Q&A')
 
-    click_on 'View Questions'
+    click_link 'View Q&A'
 
     expect(page).to have_link('Ask a new question')
     expect(page).to have_current_path('/electives/5/questions')
@@ -164,7 +164,7 @@ RSpec.describe 'Utilising the Questions and Answers on an elective as a user', t
     # This is the elective with ID = 6
     create_new_elective
     visit '/electives/6'
-    click_link 'View Questions'
+    click_link 'View Q&A'
     click_link 'Ask a new question'
     # This is the question with ID = 2
     submit_question
@@ -172,9 +172,9 @@ RSpec.describe 'Utilising the Questions and Answers on an elective as a user', t
     sign_in_user
     visit '/electives/6'
 
-    expect(page).to have_link('View Questions')
+    expect(page).to have_link('View Q&A')
 
-    click_on 'View Questions'
+    click_link 'View Q&A'
 
     expect(page).to have_link('Test Title')
 
@@ -188,7 +188,7 @@ RSpec.describe 'Utilising the Questions and Answers on an elective as a user', t
     # This is the elective with ID = 7
     create_new_elective
     visit '/electives/7'
-    click_link 'View Questions'
+    click_link 'View Q&A'
     click_link 'Ask a new question'
     # This is the question with ID = 3
     submit_question
@@ -196,9 +196,9 @@ RSpec.describe 'Utilising the Questions and Answers on an elective as a user', t
     sign_in_user
     visit '/electives/7'
 
-    expect(page).to have_link('View Questions')
+    expect(page).to have_link('View Q&A')
 
-    click_on 'View Questions'
+    click_link 'View Q&A'
 
     expect(page).to have_link('Test Title')
 
@@ -218,7 +218,7 @@ RSpec.describe 'Utilising the Questions and Answers on an elective as a user', t
     # This is the elective with ID = 8
     create_new_elective
     visit '/electives/8'
-    click_link 'View Questions'
+    click_link 'View Q&A'
     click_link 'Ask a new question'
     # This is the question with ID = 4
     submit_question
@@ -226,9 +226,9 @@ RSpec.describe 'Utilising the Questions and Answers on an elective as a user', t
     sign_in_user
     visit '/electives/8'
 
-    expect(page).to have_link('View Questions')
+    expect(page).to have_link('View Q&A')
 
-    click_on 'View Questions'
+    click_on 'View Q&A'
 
     expect(page).to have_link('Test Title')
 
