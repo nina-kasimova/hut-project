@@ -306,7 +306,7 @@ body {
     background-color: white;
   }
 
-  /*The FAQ Page*/
+  /*The FAQ Page + Q&A*/
   #accordion li {
     list-style: none;
     width: 100%;
@@ -367,4 +367,11 @@ body {
     display: flex;
     justify-content: center;
   }
+
+  .content ul {
+    list-style-type: circle;
+    border-left: 5px solid #5125ad ;
+    padding: 0.5%;
+    margin-trim: auto;
+}
 }
